@@ -1,11 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+  <PropertyGroup Condition="$'(configuration)' == 'Release'">
+    <!-- the "of-course" section -->
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>CSCPP_HavDistance</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>win-x64</PlatformTarget>
+    
+    <!-- The wild west -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot> true </PublishAot>
+    <AllowUnsafeBlocks> true </AllowUnsafeBlocks>
+    <ApplicationVersion> 1.0 </ApplicationVersion>
+    <Description> Haversine calculator with Hybrid-Programming C/C++ and C# </Description>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Optimize> true </Optimize>
+    <PublishTrimmed>true</PublishTrimmed> <!-- optional, auto-trims -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$'(configuration)' == 'Debug'">
+    <!-- the "of-course" section -->
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>win-x64</PlatformTarget>
+
+    <!-- The wild west -->
+    <PublishSingleFile>false</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot> false </PublishAot>
+    <AllowUnsafeBlocks> true </AllowUnsafeBlocks>
+    <ApplicationVersion> 1.0 </ApplicationVersion>
+    <Description> Haversine calculator with Hybrid-Programming C/C++ and C# </Description>
+    <IncludeNativeLibrariesForSelfExtract> true </IncludeNativeLibrariesForSelfExtract>
+    <Optimize> true </Optimize>
+    <PublishTrimmed>false</PublishTrimmed> <!-- optional, auto-trims -->
+
   </PropertyGroup>
 
 </Project>
