@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# C# stuffs
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
