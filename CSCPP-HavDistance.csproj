@@ -1,44 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Condition="$'(configuration)' == 'Release'">
-    <!-- the "of-course" section -->
+  <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <PlatformTarget>win-x64</PlatformTarget>
-    
-    <!-- The wild west -->
-    <PublishSingleFile>true</PublishSingleFile>
-    <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <PublishAot> true </PublishAot>
-    <AllowUnsafeBlocks> true </AllowUnsafeBlocks>
-    <ApplicationVersion> 1.0 </ApplicationVersion>
-    <Description> Haversine calculator with Hybrid-Programming C/C++ and C# </Description>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-    <Optimize> true </Optimize>
-    <PublishTrimmed>true</PublishTrimmed> <!-- optional, auto-trims -->
+    <Description>Haversine calculator with Hybrid-Programming C/C++ and C#</Description>
+    <ApplicationVersion>1.0</ApplicationVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$'(configuration)' == 'Debug'">
-    <!-- the "of-course" section -->
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <PlatformTarget>win-x64</PlatformTarget>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot>true</PublishAot>
+    <PublishSingleFile>false</PublishSingleFile> <!-- AOT dan SingleFile gak bisa bareng -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
 
-    <!-- The wild west -->
-    <PublishSingleFile>false</PublishSingleFile>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <SelfContained>false</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <PublishAot> false </PublishAot>
-    <AllowUnsafeBlocks> true </AllowUnsafeBlocks>
-    <ApplicationVersion> 1.0 </ApplicationVersion>
-    <Description> Haversine calculator with Hybrid-Programming C/C++ and C# </Description>
-    <IncludeNativeLibrariesForSelfExtract> true </IncludeNativeLibrariesForSelfExtract>
-    <Optimize> true </Optimize>
-    <PublishTrimmed>false</PublishTrimmed> <!-- optional, auto-trims -->
-
+    <PublishAot>false</PublishAot>
+    <PublishSingleFile>false</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
 </Project>
