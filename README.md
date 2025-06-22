@@ -50,7 +50,7 @@ Native/
 
 ### 🧩 C++ (DLL Build)
 
-**With Clang:**
+**With Clang (recommended):**
 ```bash
 clang++ -shared -std=c++23 -O3 -o HaversineInterop.dll interop.cpp -I. -fPIC
 ````
