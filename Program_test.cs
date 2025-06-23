@@ -1,5 +1,6 @@
 ﻿// using System;
 // using System.Runtime.InteropServices;
+
 /* Compile: 
  * dotnet publish -c Release -r win-x64 --self-contained true
  * /p:PublishAot=true
@@ -11,7 +12,6 @@
  * /p:InvariantGlobalization=true
  * /p:EnableCompressionInSingleFile=true
  */
-// using System.Runtime.InteropServices;
 
 enum Symbol
 {
