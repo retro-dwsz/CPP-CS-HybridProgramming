@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿// using System;
+// using System.Runtime.InteropServices;
 /* Compile: 
  * dotnet publish -c Release -r win-x64 --self-contained true
  * /p:PublishAot=true
@@ -12,24 +12,25 @@
  * /p:EnableCompressionInSingleFile=true
  */
 // using System.Runtime.InteropServices;
-/*enum Symbol
+
+enum Symbol
 {
     Degree,
     Radian
-}*/
-/*class Program_test 
+}
+class Program_test 
 {
-    [DllImport("Hello.dll", CallingConvention = CallingConvention.Cdecl)]
+    [System.Runtime.InteropServices.DllImport("Hello.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
     static extern void Hello();
-    [DllImport("Hello.dll", CallingConvention = CallingConvention.Cdecl)]
+    [System.Runtime.InteropServices.DllImport("Hello.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
     static extern void Hav(double x, Symbol symbol = Symbol.Degree, bool printing = false);
 
     static void Main_test()
     {
-        Console.WriteLine("Calling C++ from C#...");
+        System.Console.WriteLine("Calling C++ from C#...");
         Hello();
         Hav(90, printing:true);
-        Console.WriteLine("Done.");
+        System.Console.WriteLine("Done.");
     }
-}*/
+}
 
