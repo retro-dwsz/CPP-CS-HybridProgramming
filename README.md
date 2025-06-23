@@ -16,21 +16,31 @@ We're blending the beauty of **.NET** and the raw speed of **C++** using `DllImp
 ## 📁 Project Structure
 
 ```
+.                     # C# files
+├── Program.cs          # Main entry point
+├── Location.cs         # Represents a coordinate (lat, lon)
+├── Distance.cs         # Distance calculator (calls C++ backend)
+├── Haversine.cs        # \[Replaced by native C++]
+├── Symbols.cs          # Greek and math symbols
+├── Misc.cs             # Terminal formatting, etc.
+└── NativeInterop.cs    # DllImport for calling C++ functions
 
-OOP\_SRC/
-├── Program.cs        # Main entry point
-├── Location.cs       # Represents a coordinate (lat, lon)
-├── Distance.cs       # Distance calculator (calls C++ backend)
-├── Haversine.cs      # \[Replaced by native C++]
-├── Symbols.cs        # Greek and math symbols
-├── Misc.cs           # Terminal formatting, etc.
-└── NativeInterop.cs  # DllImport for calling C++ functions
+.\test                # Testing files
+├── Program_test.cs     # Testing för Main entry point
+├── Hello.cpp           # Testing för Represents a coordinate (lat, lon)
+├── Hello.ll            # Compiled to LLVM Intermediate Level
+└── Hello.dll           # Comepiled thing
 
-Native/
-├── Includes.h        # Shared includes
-├── Symbols.h         # Unicode + ANSI codes
-├── Haversine.h       # C++ haversine functions (deg2rad, hav, etc)
-├── interop.cpp       # Exported functions for C#
+.\SRC_CPP             # C++ Files
+├── Distance.h 
+├── Haversine.h           # C++ haversine functions (deg2rad, hav, etc)
+├── Includes.h            # Shared includes
+├── Location.h            # Location object stuffs
+├── Main.cpp              # Main file
+├── Misc.h                # Greek and math symbols
+└── Symbols.h             # Unicode + ANSI codes
+
+├── interop.cpp           # Exported functions for C#
 └── HaversineInterop.dll  # Compiled native DLL
 
 ````
