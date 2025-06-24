@@ -27,7 +27,7 @@ public class Program_test
     [System.Runtime.InteropServices.DllImport("Hello.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
     static extern void Hav(double x, Symbol symbol = Symbol.Degree, bool printing = false);
 
-    public static void Main_test()
+    public static void Main()
     {
         System.Console.WriteLine("Calling C++ from C#...");
         Hello();

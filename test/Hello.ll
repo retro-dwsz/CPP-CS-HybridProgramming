@@ -1001,7 +1001,7 @@ define dso_local noundef double @_ZN9Haversine3HavEd4Unitb(double noundef %0, i3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef double @_Z3Havd4Unitb(double noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local dllexport noundef double @Hav(double noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.fmt::v11::detail::format_arg_store", align 16
   %5 = alloca %"class.fmt::v11::basic_string_view", align 8
   %6 = alloca %"class.fmt::v11::basic_format_args", align 8

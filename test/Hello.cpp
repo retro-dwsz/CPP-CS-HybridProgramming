@@ -130,7 +130,8 @@ namespace Haversine{
 }
 
 extern "C" __declspec(dllexport)
-double Hav(double x, Unit unit = Unit::Degree, bool Printing = false){
+double Hav(double x, Unit unit = Unit::Degree, bool Printing = false)
+{
     fmt::println("Hello from haversine in C++! Calling in C#");
     return Haversine::Hav(x, unit, Printing);
 }
