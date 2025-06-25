@@ -4,10 +4,12 @@
 /* Program.cs */
 namespace CS_Navigation;
 
-using System;                   // System sauces
-using System.Text;
+using System;                           // System sauces
+using System.Text;                      // Text stuffs
+using System.Collections.Generic;       // idk
+
+// using System.Diagnostics;
 using System.Runtime.CompilerServices;  // Super Optimization
-using System.Collections.Generic;
 
 /**/
 // using Location;                // Main sauce I
@@ -21,7 +23,8 @@ using System.Collections.Generic;
 /// </summary>
 public class Location
 {
-    public enum Unit{
+    public enum Unit
+    {
         Degree,
         Radian
     }
@@ -42,11 +45,11 @@ public class Location
     /// <summary>
     /// Initializes a new instance of the Location class with default or specified values.
     /// </summary>
-    /// <param name="aLat">Latitude of the location (default: 0).</param>
-    /// <param name="aLon">Longitude of the location (default: 0).</param>
-    /// <param name="aName">Name of the location (default: "MyLocation").</param>
+    /// <param name="Lat">Latitude of the location (default: 0).</param>
+    /// <param name="Lon">Longitude of the location (default: 0).</param>
+    /// <param name="Name">Name of the location (default: "MyLocation").</param>
     /// <param name="isRadian">Indicates whether the coordinates are in radians (default: false).</param>
-    public Location(string aName = "MyLocation", double aLat = 0, double aLon = 0, bool isRadian = false)
+    public Location(string Name = "MyLocation", double Lat = 0, double Lon = 0, bool isRadian = false)
     {
         if (isRadian)
         {
@@ -58,9 +61,9 @@ public class Location
             LUnit = Unit.Degree;
             Symbol = Symbols.DEGREE;
         }
-        Lat = aLat;
-        Lon = aLon;
-        Name = aName;
+        this.Lat = Lat;
+        this.Lon = Lon;
+        this.Name = Name;
 
         Coords.Add(Lat);
         Coords.Add(Lon);
@@ -82,7 +85,7 @@ public class Location
     /// <param name="SupressWarning">Suppresses warnings if the coordinates are already in radians (default: false).</param>
     /// <param name="force">Forces conversion even if the coordinates are already in radians (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in radians.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void toRadian(bool SupressWarning = false, bool force = false)
     {
         if (LUnit == Unit.Radian)
@@ -116,8 +119,8 @@ public class Location
     /// <param name="SupressWarning">Suppresses warnings if the coordinates are already in degrees (default: false).</param>
     /// <param name="Force">Forces conversion even if the coordinates are already in degrees (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in degrees.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    public void toDegree(bool SupressWarning = false, bool Force = false)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void ToDegree(bool SupressWarning = false, bool Force = false)
     {
         if (LUnit == Unit.Degree)
         {
@@ -153,7 +156,8 @@ public class Location
         return Coords;
     }
 
-    public Unit GetUnit() {
+    public Unit GetUnit()
+    {
         return LUnit;
     }
 };
@@ -170,7 +174,7 @@ public class Haversine
     /// <param name="deg">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, prints intermediate values to console.</param>
     /// <returns>The angle converted to radians.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double deg2rad(double deg, bool Printing = false)
     {
         double var = Math.PI / 180 * deg;
@@ -188,7 +192,7 @@ public class Haversine
     /// <param name="x">Angle in radians.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Hav_rad(double x, bool Printing = false)
     {
         double Cos = 1 - Math.Cos(x);
@@ -211,7 +215,7 @@ public class Haversine
     /// <param name="x">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Hav_deg(double x, bool Printing = false)
     {
         // radian-ize the Angle
@@ -239,7 +243,7 @@ public class Haversine
     /// <param name="isRadian">If true, assumes input is in radians; otherwise, treats it as degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Hav(double x, bool isRadian = false, bool Printing = false)
     {
         if (isRadian) { }
@@ -474,8 +478,8 @@ public class Distance
             // Delta lambda
             double Dlon = lon2 - lon1;
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Symbols.LAMBDA}{Symbols.SB2} - {Symbols.LAMBDA}{Symbols.SB1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lat2} - {lat1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlat}\n~~~");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lon2} - {lon1}");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlon}\n~~~");
 
             /*
             Convert to Radians and Build hav(θ) formula
@@ -548,8 +552,8 @@ public class Distance
             // Delta lambda
             double Dlon = lon2 - lon1;
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Symbols.LAMBDA}{Symbols.SB2} - {Symbols.LAMBDA}{Symbols.SB1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lat2} - {lat1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlat}\n~~~");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lon2} - {lon1}");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlon}\n~~~");
 
             // Build hav(θ) formula
             Console.WriteLine($"~  Hav({Symbols.DELTA}{Symbols.PHI})");
@@ -669,11 +673,11 @@ public class Program
         SV_IPB.Printer();
         Danau_IPB.Printer();
 
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '-', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
         // double D = nDistance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
         double D = Distance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
 
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '-', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
         SV_IPB.toRadian();
         Danau_IPB.toRadian();
 
@@ -688,7 +692,7 @@ public class Program
         Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    // [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void WikipediaExample()
     {
         Location WhiteHouse = new Location("White House WDC", 38.898, 77.037);
@@ -697,14 +701,14 @@ public class Program
         WhiteHouse.Printer();
         EffielTowr.Printer();
 
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '-', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
 
         double D = Distance.Distance_2D.Distance_Deg(WhiteHouse, EffielTowr);
 
         WhiteHouse.toRadian();
         EffielTowr.toRadian();
 
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '-', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
         double R = Distance.Distance_2D.Distance_Rad(WhiteHouse, EffielTowr);
 
         Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
@@ -715,7 +719,7 @@ public class Program
         Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
     }
 
-    public static void Main()
+    public static void Main(string[] args)
     {
         string TITLE = ColorTx.ColorStr("Haversine Implementation!");
         Console.WriteLine(Misc.PrintMid(TITLE, ' ', LeftBorder: ' ', RightBorder: ' '));
@@ -725,17 +729,17 @@ public class Program
         // ConsoleColor CurrentColor = Console.BackgroundColor;
         // Set color
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine(Misc.PrintMid("IPBs", '='));
+        Console.WriteLine(Misc.PrintMid("IPBs", '─'));
         // Reset color
         Console.ResetColor();
         IPB();
-        Console.WriteLine(Misc.Repeater("=", Misc.TerminalSize));
+        Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
 
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine(Misc.PrintMid("WIkipedia Example", '='));
+        Console.WriteLine(Misc.PrintMid("WIkipedia Example", '─'));
         Console.ResetColor();
         WikipediaExample();
-        Console.WriteLine(Misc.Repeater("=", Misc.TerminalSize));
+        Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
 
     }
 }
