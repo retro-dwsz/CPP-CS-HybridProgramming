@@ -120,6 +120,8 @@ public class Location
     /// <param name="SupressWarning">Suppresses warnings if the coordinates are already in degrees (default: false).</param>
     /// <param name="Force">Forces conversion even if the coordinates are already in degrees (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in degrees.</returns>
+    /// 
+    /// TODO: Make C code för this
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void ToDegree(bool SupressWarning = false, bool Force = false)
     {
@@ -175,7 +177,9 @@ public class Haversine
     /// <param name="deg">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, prints intermediate values to console.</param>
     /// <returns>The angle converted to radians.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double deg2rad(double deg, bool Printing = false)
     {
         double var = Math.PI / 180 * deg;
@@ -193,7 +197,9 @@ public class Haversine
     /// <param name="x">Angle in radians.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav_rad(double x, bool Printing = false)
     {
         double Cos = 1 - Math.Cos(x);
@@ -216,7 +222,9 @@ public class Haversine
     /// <param name="x">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav_deg(double x, bool Printing = false)
     {
         // radian-ize the Angle
@@ -244,7 +252,9 @@ public class Haversine
     /// <param name="isRadian">If true, assumes input is in radians; otherwise, treats it as degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav(double x, bool isRadian = false, bool Printing = false)
     {
         if (isRadian) { }
@@ -413,6 +423,7 @@ public class ColorTx
     }
 
     // Kinda not useful
+    // TODO: Make C code för this
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Debug(string text)
     {
@@ -477,13 +488,13 @@ public class Distance
 
             // Calculate Deltas
             // Delta phi
-            double Dlat = lat2 - lat1;
+            double Dlat = lat2 - lat1;                                          /// TODO: Make C code för this
             Console.WriteLine($"{Symbols.DELTA}{Symbols.PHI} = {Symbols.PHI}{Symbols.SB2} - {Symbols.PHI}{Symbols.SB1}");
             Console.WriteLine($"{Symbols.DELTA}{Symbols.PHI} = {lat2} - {lat1}");
             Console.WriteLine($"{Symbols.DELTA}{Symbols.PHI} = {Dlat}\n");
 
             // Delta lambda
-            double Dlon = lon2 - lon1;
+            double Dlon = lon2 - lon1;                                          /// TODO: Make C code för this
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Symbols.LAMBDA}{Symbols.SB2} - {Symbols.LAMBDA}{Symbols.SB1}");
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lon2} - {lon1}");
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlon}\n~~~");
@@ -493,30 +504,32 @@ public class Distance
             */
             Console.WriteLine($"~ Hav({Symbols.DELTA}{Symbols.PHI})");
             Console.WriteLine($"~ Hav({Dlat}{Symbols.DEGREE})");
-            double hav1 = Haversine.Hav_deg(Dlat, Printing: true);
+            double hav1 = Haversine.Hav_deg(Dlat, Printing: true);              /// TODO: Make C code för this
 
             Console.WriteLine($"\n~ Hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"~ Hav({Dlon}{Symbols.DEGREE})");
-            double hav2 = Haversine.Hav_deg(Dlon, Printing: true);
+            double hav2 = Haversine.Hav_deg(Dlon, Printing: true);              /// TODO: Make C code för this
 
             double cos1 = Math.Cos(Haversine.deg2rad(lat1));
             double cos2 = Math.Cos(Haversine.deg2rad(lat2));
 
+            /// TODO: Make C code för this {
             // Plug everything
             double Hav = hav1 + cos1 * cos2 * hav2;
+            // Find theta
+            double T = 2 * Math.Asin(Math.Sqrt(Hav));
+            // Find d with theta
+            double d = R * T;            
+                           
             Console.WriteLine($"\nhav({Symbols.THETA}) = hav({Symbols.DELTA}{Symbols.PHI}) + cos({Symbols.PHI}{Symbols.SB1}) * cos({Symbols.PHI}{Symbols.SB2}) * hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"hav({Symbols.THETA}) = hav({Dlat}) + cos({lat1}) * cos({lat2}) * hav({Dlon})");
             Console.WriteLine($"hav({Symbols.THETA}) = {hav1} + {cos1} * {cos2} * {hav2}");
             Console.WriteLine($"hav({Symbols.THETA}) = {Hav}");
 
-            // Find theta
-            double T = 2 * Math.Asin(Math.Sqrt(Hav));
             Console.WriteLine($"{Symbols.THETA} = 2 * archav({Symbols.SQRT}(1 - hav)))");
             Console.WriteLine($"{Symbols.THETA} = 2 * arcsin({Symbols.SQRT}({Hav})");
             Console.WriteLine($"{Symbols.THETA} = {T}");
 
-            // Find d with theta
-            double d = R * T;
             Console.WriteLine($"d = R * θ{Symbols.RAD}");
             Console.WriteLine($"d = {R} * {T}");
             Console.WriteLine($"d {Symbols.APRX} {d} KM");
@@ -574,22 +587,24 @@ public class Distance
             double cos1 = Math.Cos(lat1);
             double cos2 = Math.Cos(lat2);
 
+            /// TODO: Make C code för this
             // Plug everything
             double Hav = hav1 + cos1 * cos2 * hav2;
+            // Find theta
+            double T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
+            // Find d with theta
+            double d = R * T;
+
             Console.WriteLine($"\nhav({Symbols.THETA}) = hav({Symbols.DELTA}{Symbols.PHI}) + cos({Symbols.PHI}{Symbols.SB1}) * cos({Symbols.PHI}{Symbols.SB2}) * hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"hav({Symbols.THETA}) = hav({Dlat}) + cos({lat1}) * cos({lat2}) * hav({Dlon})");
             Console.WriteLine($"hav({Symbols.THETA}) = {hav1} + {cos1} * {cos2} * {hav2}");
             Console.WriteLine($"hav({Symbols.THETA}) = {Hav}\n");
 
-            // Find theta
-            double T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
             Console.WriteLine($"{Symbols.THETA} = 2 * archav({Symbols.THETA})");
             Console.WriteLine($"{Symbols.THETA} = 2 * arctan2({Symbols.SQRT}({Symbols.THETA}), {Symbols.SQRT}(1 - {Symbols.THETA}))");
             Console.WriteLine($"{Symbols.THETA} = 2 * arctan2({Symbols.SQRT}({Hav}), {Symbols.SQRT}({1 - Hav}))");
             Console.WriteLine($"{Symbols.THETA} = {T}\n");
 
-            // Find d with theta
-            double d = R * T;
             Console.WriteLine($"d = R * θ{Symbols.RAD}");
             Console.WriteLine($"d = {R} * {T}");
             Console.WriteLine($"d {Symbols.APRX} {d} KM");
@@ -598,6 +613,7 @@ public class Distance
             return d;
         }
 
+        /// TODO: Make C code för this
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public static double Distance(Location A, Location B, bool IsRadian = false)
         {
