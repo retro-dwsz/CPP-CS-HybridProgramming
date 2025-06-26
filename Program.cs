@@ -11,6 +11,7 @@ using System.Collections.Generic;       // idk
 
 // using System.Diagnostics;
 using System.Runtime.CompilerServices;  // Super Optimization
+using DYNAMIC_CS_CPP_HAV_TEST;          // Testing
 
 /**/
 // using Location;                // Main sauce I
@@ -686,74 +687,75 @@ public class Program
         // }
     }
 
-    // [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    // public static void IPB()
-    // {
-    //     /*
-    //     [-6.588457, 106.806200]
-    //     [-6.559582, 106.726720]
-    //     */
-
-    //     Console.WriteLine($"Current terminal size: {Misc.TerminalSize}");
-
-    //     Location SV_IPB = new Location("SV IPB", -6.588457, 106.806200, isRadian: false);
-    //     Location Danau_IPB = new Location("Danau IPB", -6.559582, 106.726720, isRadian: false);
-
-    //     SV_IPB.Printer();
-    //     Danau_IPB.Printer();
-
-    //     Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-    //     // double D = nDistance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
-    //     double D = Distance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
-
-    //     Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-    //     SV_IPB.toRadian();
-    //     Danau_IPB.toRadian();
-
-    //     // double R = nDistance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
-    //     double R = Distance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
-
-    //     Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
-
-    //     Console.WriteLine($"Degrees = {D} KM");
-    //     Console.WriteLine($"Radians = {R} KM");
-
-    //     Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
-    // }
-
-    // [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    // public static void WikipediaExample()
-    // {
-    //     Location WhiteHouse = new Location("White House WDC", 38.898, 77.037);
-    //     Location EffielTowr = new Location("Effiel Tower à Paris", 48.858, 2.294);
-
-    //     WhiteHouse.Printer();
-    //     EffielTowr.Printer();
-
-    //     Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-
-    //     double D = Distance.Distance_2D.Distance_Deg(WhiteHouse, EffielTowr);
-
-    //     WhiteHouse.toRadian();
-    //     EffielTowr.toRadian();
-
-    //     Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-    //     double R = Distance.Distance_2D.Distance_Rad(WhiteHouse, EffielTowr);
-
-    //     Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
-
-    //     Console.WriteLine($"Degrees = {D} KM");
-    //     Console.WriteLine($"Radians = {R} KM");
-
-    //     Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
-    // }
-
-    public static void ProgramMain()
+    /*
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void IPB()
     {
-        ProgramMain(new Location(), new Location(), "");
+        // [-6.588457, 106.806200]
+        // [-6.559582, 106.726720]   
+
+        Console.WriteLine($"Current terminal size: {Misc.TerminalSize}");
+
+        Location SV_IPB = new Location("SV IPB", -6.588457, 106.806200, isRadian: false);
+        Location Danau_IPB = new Location("Danau IPB", -6.559582, 106.726720, isRadian: false);
+
+        SV_IPB.Printer();
+        Danau_IPB.Printer();
+
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        // double D = nDistance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
+        double D = Distance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
+
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        SV_IPB.toRadian();
+        Danau_IPB.toRadian();
+
+        // double R = nDistance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
+        double R = Distance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
+
+        Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
+
+        Console.WriteLine($"Degrees = {D} KM");
+        Console.WriteLine($"Radians = {R} KM");
+
+        Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
     }
 
-    private static void ProgramMain(Location LocA, Location LocB, string tag = "") {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void WikipediaExample()
+    {
+        Location WhiteHouse = new Location("White House WDC", 38.898, 77.037);
+        Location EffielTowr = new Location("Effiel Tower à Paris", 48.858, 2.294);
+
+        WhiteHouse.Printer();
+        EffielTowr.Printer();
+
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+
+        double D = Distance.Distance_2D.Distance_Deg(WhiteHouse, EffielTowr);
+
+        WhiteHouse.toRadian();
+        EffielTowr.toRadian();
+
+        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
+        double R = Distance.Distance_2D.Distance_Rad(WhiteHouse, EffielTowr);
+
+        Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
+
+        Console.WriteLine($"Degrees = {D} KM");
+        Console.WriteLine($"Radians = {R} KM");
+
+        Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
+    }
+    */
+
+    public static void ProgramMainRunner()
+    {
+        ProgramMainRunner(new Location(), new Location(), "");
+    }
+
+    private static void ProgramMainRunner(Location LocA, Location LocB, string tag = "")
+    {
         if (tag != "")
         {
             Console.WriteLine(Misc.PrintMid(tag));
@@ -777,10 +779,14 @@ public class Program
         Console.WriteLine($"Radians = {R} KM");
 
         Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
-
     }
 
-    public static void Main(string[] args)
+    public static void ENTRY_TEST()
+    {
+        ProgramTestCoffe.Main_test();
+    }
+
+    public static void ENTRY_MAIN()
     {
         string TITLE = ColorTx.ColorStr("Haversine Implementation!");
         Console.WriteLine(Misc.PrintMid(TITLE, ' ', LeftBorder: ' ', RightBorder: ' '));
@@ -794,16 +800,21 @@ public class Program
         // Reset color
         Console.ResetColor();
         // IPB();
-        ProgramMain(new Location("SV IPB", -6.588457, 106.806200, isRadian: false), new Location("Danau IPB", -6.559582, 106.726720, isRadian: false));
+        ProgramMainRunner(new Location("SV IPB", -6.588457, 106.806200, isRadian: false), new Location("Danau IPB", -6.559582, 106.726720, isRadian: false));
         Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
 
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(Misc.PrintMid("WIkipedia Example", '─'));
         Console.ResetColor();
         // WikipediaExample();
-        ProgramMain(new Location("White House WDC", 38.898, 77.037), new Location("Effiel Tower à Paris", 48.858, 2.294));
+        ProgramMainRunner(new Location("White House WDC", 38.898, 77.037), new Location("Effiel Tower à Paris", 48.858, 2.294));
         Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
+    }
 
+    public static void Main()
+    {
+        // ENTRY_MAIN();
+        ENTRY_TEST();
     }
 }
 

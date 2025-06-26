@@ -15,6 +15,8 @@
 const double PI =  3.141592653589793;
 const int R     =  6378;
 
+#define CE __declspec(dllexport)
+
 // #ifdef _WIN32
 //   #define API __declspec(dllexport)
 // #else
@@ -23,7 +25,7 @@ const int R     =  6378;
 
 /********************************************** Hello Test **********************************************/
 
-extern "C" __declspec(dllexport)
+extern "C" CE
 void Hello()
 {
     fmt::println("Hello, fmt!");
@@ -129,10 +131,13 @@ namespace Haversine{
     }
 }
 
-extern "C" __declspec(dllexport)
-double Hav(double x, Unit unit = Unit::Degree, bool Printing = false)
-{
-    fmt::println("Hello from haversine in C++! Calling in C#");
-    return Haversine::Hav(x, unit, Printing);
+extern "C" {
+    double Hav(double x, Unit unit = Unit::Degree, bool Printing = false)
+    {
+        fmt::println("Hello from haversine in C++! Calling in C#");
+        return Haversine::Hav(x, unit, Printing);
+    }
 }
+
+
 // Compile: clang++ -S -emit-llvm Hello.cpp -o Hello.ll -O3 && clang++ -shared -std=c++20 -o Hello.dll Hello.ll -fPIC
