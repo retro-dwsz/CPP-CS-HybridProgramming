@@ -37,6 +37,7 @@ public class ProgramTestHav
     }
 }
 
+// C# + C/C++ = 💔
 
 public class ProgramTestCoffe
 {
@@ -46,7 +47,7 @@ public class ProgramTestCoffe
     [System.Runtime.InteropServices.DllImport("Coffee.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
     static extern void Coffee_Status(System.IntPtr coffee);
 
-    [System.Runtime.InteropServices.DllImport("Coffee.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl, CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
+    [System.Runtime.InteropServices.DllImport("Coffee.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl, CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
     static extern void Coffee_Drink(System.IntPtr coffee, int volume);
 
     /*Compile:

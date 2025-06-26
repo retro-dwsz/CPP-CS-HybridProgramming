@@ -29,7 +29,7 @@ void Coffee::Drink(int Volume){
         this->Volume -= Volume;
         
         Content = fmt::format("{} ml left!", this->Volume);
-        printf(Content.c_str());
+        printf("%s", Content.c_str());
     }
 }
 /*      End Coffee.cpp      */
