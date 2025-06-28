@@ -1,5 +1,16 @@
 ﻿// #pragma once
 
+/** COMPILED WITH LLVM CLANG 20.x
+ * Compile to byte code
+ * clang++ -c -emit-llvm Hello.cpp -o Hello.bc -O3 
+ * 
+ * Compile to .dll
+ * clang++ -shared -std=c++23 -o Hello.dll Hello.bc -fPIC
+ * 
+ */
+
+
+
 #include <cmath>
 #include <vector>
 #include <string>
