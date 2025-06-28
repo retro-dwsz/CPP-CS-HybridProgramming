@@ -1,8 +1,9 @@
-﻿// Flattend SRC_CS from another github repo
+﻿/* * * Program.cs * * */
+
+// Flattend SRC_CS from another github repo
 // For testing:
 // DYNAMIC_CS_CPP_HAV_TEST.Program_test.Main_test();
 
-/* Program.cs */
 namespace CS_Navigation;
 
 using System;                           // System sauces
@@ -521,8 +522,8 @@ public class Distance
             // Find theta
             double T = 2 * Math.Asin(Math.Sqrt(Hav));
             // Find d with theta
-            double d = R * T;            
-                           
+            double d = R * T;
+
             Console.WriteLine($"\nhav({Symbols.THETA}) = hav({Symbols.DELTA}{Symbols.PHI}) + cos({Symbols.PHI}{Symbols.SB1}) * cos({Symbols.PHI}{Symbols.SB2}) * hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"hav({Symbols.THETA}) = hav({Dlat}) + cos({lat1}) * cos({lat2}) * hav({Dlon})");
             Console.WriteLine($"hav({Symbols.THETA}) = {hav1} + {cos1} * {cos2} * {hav2}");
@@ -820,4 +821,4 @@ public class Program
     }
 }
 
-/* End Program.cs */
+/* * * End Program.cs * * */

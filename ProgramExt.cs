@@ -1,8 +1,7 @@
-// Modded and Flattend SRC_CS from another github repo
-// For testing:
-// DYNAMIC_CS_CPP_HAV_TEST.Program_test.Main_test();
+/* * * ProgramExt.cs * * */
 
-/* ProgramExt.cs */
+// Modded and Flattend SRC_CS from another github repo
+
 namespace DYNAMIC_CS_CPP_HAV;
 
 using System;                           // System sauces
@@ -788,7 +787,7 @@ public class ProgramExt
         Console.WriteLine($"Degrees = {D} KM");
         Console.WriteLine($"Radians = {R} KM");
 
-        Console.WriteLine(CheckEqual(D, R) ? "C# + C/C++ is APPROVED!": "meh");
+        Console.WriteLine(CheckEqual(D, R) ? "C# + C/C++ is APPROVED!" : "meh");
     }
 
     public static void ENTRY_MAIN_EXT()
@@ -817,4 +816,4 @@ public class ProgramExt
     }
 }
 
-/* End Program.cs */
+/* * * End ProgramExt.cs * * */
