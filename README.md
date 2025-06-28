@@ -16,7 +16,7 @@ We're blending the beauty of **.NET** and the raw speed of **C++** using `DllImp
 ## 📁 Project Structure
 
 ```
-.                     # C# files
+.                     # C# files (flatted)
 ├── Program.cs          # Main entry point
 ├── Location.cs         # Represents a coordinate (lat, lon)
 ├── Distance.cs         # Distance calculator (calls C++ backend)
@@ -40,9 +40,6 @@ We're blending the beauty of **.NET** and the raw speed of **C++** using `DllImp
 ├── Misc.h                # Greek and math symbols
 └── Symbols.h             # Unicode + ANSI codes
 
-├── interop.cpp           # Exported functions for C#
-└── HaversineInterop.dll  # Compiled native DLL
-
 ````
 
 ---
@@ -62,32 +59,32 @@ We're blending the beauty of **.NET** and the raw speed of **C++** using `DllImp
 
 **With Clang (recommended):**
 ```bash
-clang++ -shared -std=c++23 -O3 -o HaversineInterop.dll interop.cpp -I. -fPIC
+clang++ -shared -o CPP_Main.dll .\CPP_SRC\CPP_Main.cpp -O3 -static -fPIC
 ````
 
 **With MSVC (Visual Studio Command Prompt):**
 
 ```bash
-cl /LD interop.cpp /I. /O2 /FeHaversineInterop.dll
+cl /LD CPP_Main.cpp /I. /O2 /FeCPP_Main.dll
 ```
 
-> Make sure to place the resulting `HaversineInterop.dll` in your C# project’s output folder (`bin/Debug/...`).
+> Make sure to place the resulting `CPP_Main.dll` in your C# project’s output folder (`bin/Debug/...`).
 
 ---
 
 ### 🧠 C# (Call from DLL)
 
-Inside `NativeInterop.cs`:
+Inside `Program.cs`:
 
 ```csharp
-[DllImport("HaversineInterop.dll", CallingConvention = CallingConvention.Cdecl)]
+[DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
 public static extern double hav_deg(double angle);
 ```
 
 Then call it in your app:
 
 ```csharp
-double result = NativeInterop.hav_deg(60.0);
+double result = hav_deg(60.0);
 Console.WriteLine($"Hav(60°) = {result}");
 ```
 
