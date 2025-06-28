@@ -32,6 +32,8 @@
     <IlcDisableReflection>true</IlcDisableReflection>
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <OutputPath>CS_Compiled/HybridOut/</OutputPath>
+    <PublishDir>CS_Compiled/Published/</PublishDir>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
