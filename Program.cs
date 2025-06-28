@@ -12,6 +12,7 @@ using System.Collections.Generic;       // idk
 // using System.Diagnostics;
 using System.Runtime.CompilerServices;  // Super Optimization
 using DYNAMIC_CS_CPP_HAV_TEST;          // Testing
+using DYNAMIC_CS_CPP_HAV;               // The Experiment
 
 /**/
 // using Location;                // Main sauce I
@@ -122,7 +123,7 @@ public class Location
     /// <param name="Force">Forces conversion even if the coordinates are already in degrees (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in degrees.</returns>
     /// 
-    /// TODO: Make C code för this
+    /// TODO: Make C code för this?
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void ToDegree(bool SupressWarning = false, bool Force = false)
     {
@@ -615,7 +616,7 @@ public class Distance
         }
 
         /// TODO: Make C code för this
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
         public static double Distance(Location A, Location B, bool IsRadian = false)
         {
             double lat1, lon1;
@@ -814,7 +815,8 @@ public class Program
     public static void Main()
     {
         // ENTRY_MAIN();
-        ENTRY_TEST();
+        // ENTRY_TEST();
+        ProgramExt.ENTRY_MAIN_EXT();
     }
 }
 

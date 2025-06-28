@@ -1,8 +1,9 @@
-﻿// For testing:
+// Modded and Flattend SRC_CS from another github repo
+// For testing:
 // DYNAMIC_CS_CPP_HAV_TEST.Program_test.Main_test();
 
-/* Program.cs */
-namespace CS_Navigation;
+/* ProgramExt.cs */
+namespace DYNAMIC_CS_CPP_HAV;
 
 using System;                           // System sauces
 using System.Text;                      // Text stuffs
@@ -119,6 +120,8 @@ public class Location
     /// <param name="SupressWarning">Suppresses warnings if the coordinates are already in degrees (default: false).</param>
     /// <param name="Force">Forces conversion even if the coordinates are already in degrees (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in degrees.</returns>
+    /// 
+    /// TODO: Make C code för this?
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void ToDegree(bool SupressWarning = false, bool Force = false)
     {
@@ -168,46 +171,72 @@ public class Location
 /// </summary>
 public class Haversine
 {
+    /* ~ ~ ~  Fn: Deg-Rad converter  ~ ~ ~ */
+
     /// <summary>
     /// Converts an angle from degrees to radians.
     /// </summary>
     /// <param name="deg">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, prints intermediate values to console.</param>
     /// <returns>The angle converted to radians.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double deg2rad(double deg, bool Printing = false)
+    /// 
+    /// TODO: Make C code för this
+    [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+    static extern double CPP_Convert(double x);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static double deg2rad(double deg)
     {
-        double var = Math.PI / 180 * deg;
-        if (Printing)
-        {
-            Console.WriteLine($"deg = {deg}");
-            Console.WriteLine($"rad = {var}");
-        }
-        return var;
+        return CPP_Convert(deg);
     }
 
+    // public static double deg2rad(double deg, bool Printing = false)
+    // {
+    //     double var = Math.PI / 180 * deg;
+    //     if (Printing)
+    //     {
+    //         Console.WriteLine($"deg = {deg}");
+    //         Console.WriteLine($"rad = {var}");
+    //     }
+    //     return var;
+    // }
+
+    /* ~ ~ ~  End Fn: Deg-Rad converter  ~ ~ ~ */
+
+
+    /* ~ ~ ~ Fn: Halv-Versed Sine (Radian)  ~ ~ ~ */
     /// <summary>
     /// Computes the haversine of an angle given in radians.
     /// </summary>
     /// <param name="x">Angle in radians.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+    static extern double CPP_Hav(double x, bool Printing);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav_rad(double x, bool Printing = false)
     {
-        double Cos = 1 - Math.Cos(x);
-        double hHav = Cos / 2;
-        if (Printing)
-        {
-            Console.WriteLine($"~! x = {x}{Symbols.RAD}");
-            Console.WriteLine($"~! cos(x) = {Math.Cos(x)}");
-            Console.WriteLine($"~! 1-cos(x) = {Cos}");
-            Console.WriteLine($"~! Hav(x) = {hHav}");
-        }
-
-        return hHav;
+        return CPP_Hav(x, Printing);
     }
+    // {
+    //     double Cos = 1 - Math.Cos(x);
+    //     double hHav = Cos / 2;
+    //     if (Printing)
+    //     {
+    //         Console.WriteLine($"~! x = {x}{Symbols.RAD}");
+    //         Console.WriteLine($"~! cos(x) = {Math.Cos(x)}");
+    //         Console.WriteLine($"~! 1-cos(x) = {Cos}");
+    //         Console.WriteLine($"~! Hav(x) = {hHav}");
+    //     }
 
+    //     return hHav;
+    // }
+    /* ~ ~ ~ End Fn: Halv-Versed Sine (Radian)  ~ ~ ~ */
+
+    /* ~ ~ ~ Fn: Halv-Versed Sine (Degrees)  ~ ~ ~ */
     /// <summary>
     /// Computes the haversine of an angle given in degrees.
     /// Internally converts degrees to radians before calculation.
@@ -215,26 +244,35 @@ public class Haversine
     /// <param name="x">Angle in degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+    static extern double CPP_HavDeg(double x, bool Printing);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav_deg(double x, bool Printing = false)
     {
-        // radian-ize the Angle
-        // because C# expect angle in radian
-        x = deg2rad(x);
-
-        double Cos = 1 - Math.Cos(x);
-        double hHav = Cos / 2;
-
-        if (Printing)
-        {
-            Console.WriteLine($"~! x = {x}{Symbols.RAD}");
-            Console.WriteLine($"~! cos(x) = {Math.Cos(x)}");
-            Console.WriteLine($"~! 1-cos(x) = {Cos}");
-            Console.WriteLine($"~! Hav(x) = {hHav}");
-        }
-
-        return hHav;
+        return CPP_HavDeg(x, Printing);
     }
+    // {
+    //     // radian-ize the Angle
+    //     // because C# expect angle in radian
+    //     x = deg2rad(x);
+
+    //     double Cos = 1 - Math.Cos(x);
+    //     double hHav = Cos / 2;
+
+    //     if (Printing)
+    //     {
+    //         Console.WriteLine($"~! x = {x}{Symbols.RAD}");
+    //         Console.WriteLine($"~! cos(x) = {Math.Cos(x)}");
+    //         Console.WriteLine($"~! 1-cos(x) = {Cos}");
+    //         Console.WriteLine($"~! Hav(x) = {hHav}");
+    //     }
+
+    //     return hHav;
+    // }
+    /* ~ ~ ~ End Fn: Halv-Versed Sine (Degrees)  ~ ~ ~ */
 
     /// <summary>
     /// Generic haversine function that accepts input in either radians or degrees.
@@ -243,28 +281,43 @@ public class Haversine
     /// <param name="isRadian">If true, assumes input is in radians; otherwise, treats it as degrees.</param>
     /// <param name="Printing">Optional. If true, logs intermediate steps to console.</param>
     /// <returns>Haversine value (double).</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    /// 
+    /// TODO: Make C code för this
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static double Hav(double x, bool isRadian = false, bool Printing = false)
     {
-        if (isRadian) { }
+        if (isRadian)
+        {
+            return CPP_Hav(x, Printing);
+        }
         else
         {
-            x = deg2rad(x);
+            return CPP_HavDeg(x, Printing);
         }
-
-        double Cos = 1 - Math.Cos(x);
-        double hHav = Cos / 2;
-
-        if (Printing)
-        {
-            Console.WriteLine($"~ x = {x} {Symbols.RAD}");
-            Console.WriteLine($"~ cos(x) = {Math.Cos(x)}");
-            Console.WriteLine($"~ 1-cos(x) = {Cos}");
-            Console.WriteLine($"~ Hav(x) = {hHav}");
-        }
-
-        return hHav;
     }
+    // {
+    //     if (isRadian)
+    //     {
+
+    //     }
+    //     else
+    //     {
+    //         x = deg2rad(x);
+    //     }
+
+    //     double Cos = 1 - Math.Cos(x);
+    //     double hHav = Cos / 2;
+
+    //     if (Printing)
+    //     {
+    //         Console.WriteLine($"~ x = {x} {Symbols.RAD}");
+    //         Console.WriteLine($"~ cos(x) = {Math.Cos(x)}");
+    //         Console.WriteLine($"~ 1-cos(x) = {Cos}");
+    //         Console.WriteLine($"~ Hav(x) = {hHav}");
+    //     }
+
+    //     return hHav;
+    // }
 }
 
 public static class Symbols
@@ -315,6 +368,7 @@ public static class Misc
     /// <code>
     /// string result = Misc.Repeater("hello", 3); // Returns "hellohellohello"
     /// </code>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string Repeater(object str, int repetitions = 1)
     {
         StringBuilder sb = new StringBuilder();
@@ -343,6 +397,7 @@ public static class Misc
     /// // ------------------[Welcome]-------------------
     /// </code>
     /// </example>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string PrintMid(string Text = "Hello", char Char = '=', int offset = 2, char LeftBorder = '[', char RightBorder = ']', bool Printing = false)
     {
         int ConsoleWidth = TerminalSize + offset;               // Get width + offset
@@ -372,7 +427,8 @@ public class ColorTx
 {
     public enum Position { Back, Fore }
 
-    public static string ColorStr(string text = "Hello, world!", uint hex=0xFF109696, Position pos = Position.Fore)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string ColorStr(string text = "Hello, world!", uint hex = 0xFF109696, Position pos = Position.Fore)
     {
         // Parse RGB from 0xAARRGGBB or 0xRRGGBB
         byte a = 255, r, g, b;
@@ -401,6 +457,7 @@ public class ColorTx
         return text;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Print(uint hex, Position pos, string text)
     {
         Console.WriteLine(ColorStr(text, hex, pos));
@@ -408,22 +465,29 @@ public class ColorTx
     }
 
     // Kinda not useful
+    // TODO: Make C code för this
+    [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+    static extern double CPP_RawUTF8Print(string text);
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Debug(string text)
     {
-        Console.Write("DEBUG RAW: ");
-        foreach (char c in text)
-        {
-            if (!char.IsControl(c) && !char.IsWhiteSpace(c))
-            {
-                Console.Write(c);
-            }
-            else
-            {
-                Console.Write($"\\x{((int)c):X2}");
-            }
-        }
-        Console.WriteLine();
+        CPP_RawUTF8Print(text);
     }
+    // {
+    //     Console.Write("DEBUG RAW: ");
+    //     foreach (char c in text)
+    //     {
+    //         if (!char.IsControl(c) && !char.IsWhiteSpace(c))
+    //         {
+    //             Console.Write(c);
+    //         }
+    //         else
+    //         {
+    //             Console.Write($"\\x{((int)c):X2}");
+    //         }
+    //     }
+    //     Console.WriteLine();
+    // }
 
     private static ConsoleColor RgbToConsoleColor(byte r, byte g, byte b)
     {
@@ -439,6 +503,18 @@ public class Distance
 
     public class Distance_2D
     {
+        [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
+
+        [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        static extern double CPP_Theta(double Hav, bool isRadian = false);
+
+        [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        static extern double CPP_Distance(double Hav, bool isRadian = false);
+
+        [System.Runtime.InteropServices.DllImport("CPP_Main.dll", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        static extern double CPP_DistanceT(double T);
+
         /*
         based on Wikipedia article (With Printing)
         https://en.wikipedia.org/wiki/Haversine_formula
@@ -451,6 +527,7 @@ public class Distance
         hav(x) = sin²(x/2) = (1 - cos(x))/2
         archav(θ) = 2 * arcsin(√(θ)) = 2 * arctan2(√(θ), √(1-θ))
         */
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public static double Distance_Deg(Location A, Location B)
         {
             // Print Degree coordinates 
@@ -478,8 +555,8 @@ public class Distance
             // Delta lambda
             double Dlon = lon2 - lon1;
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Symbols.LAMBDA}{Symbols.SB2} - {Symbols.LAMBDA}{Symbols.SB1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lat2} - {lat1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlat}\n~~~");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lon2} - {lon1}");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlon}\n~~~");
 
             /*
             Convert to Radians and Build hav(θ) formula
@@ -495,21 +572,26 @@ public class Distance
             double cos1 = Math.Cos(Haversine.deg2rad(lat1));
             double cos2 = Math.Cos(Haversine.deg2rad(lat2));
 
+            /// TODO: Make C code för this
             // Plug everything
-            double Hav = hav1 + cos1 * cos2 * hav2;
+            // double Hav = hav1 + cos1 * cos2 * hav2;
+            double Hav = CPP_DHav(hav1, cos1, cos2, hav2);
+            // Find theta
+            // double T = 2 * Math.Asin(Math.Sqrt(Hav));
+            double T = CPP_Theta(Hav, false);
+            // Find d with theta
+            // double d = R * T;
+            double d = CPP_DistanceT(T);
+
             Console.WriteLine($"\nhav({Symbols.THETA}) = hav({Symbols.DELTA}{Symbols.PHI}) + cos({Symbols.PHI}{Symbols.SB1}) * cos({Symbols.PHI}{Symbols.SB2}) * hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"hav({Symbols.THETA}) = hav({Dlat}) + cos({lat1}) * cos({lat2}) * hav({Dlon})");
             Console.WriteLine($"hav({Symbols.THETA}) = {hav1} + {cos1} * {cos2} * {hav2}");
             Console.WriteLine($"hav({Symbols.THETA}) = {Hav}");
 
-            // Find theta
-            double T = 2 * Math.Asin(Math.Sqrt(Hav));
             Console.WriteLine($"{Symbols.THETA} = 2 * archav({Symbols.SQRT}(1 - hav)))");
             Console.WriteLine($"{Symbols.THETA} = 2 * arcsin({Symbols.SQRT}({Hav})");
             Console.WriteLine($"{Symbols.THETA} = {T}");
-            
-            // Find d with theta
-            double d = R * T;
+
             Console.WriteLine($"d = R * θ{Symbols.RAD}");
             Console.WriteLine($"d = {R} * {T}");
             Console.WriteLine($"d {Symbols.APRX} {d} KM");
@@ -526,6 +608,7 @@ public class Distance
         d = R * θ
         hav(x) = sin²(x/2) = (1 - cos(x))/2
         */
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public static double Distance_Rad(Location A, Location B)
         {
             // Print Radian coordinates 
@@ -552,8 +635,8 @@ public class Distance
             // Delta lambda
             double Dlon = lon2 - lon1;
             Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Symbols.LAMBDA}{Symbols.SB2} - {Symbols.LAMBDA}{Symbols.SB1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lat2} - {lat1}");
-            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlat}\n~~~");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {lon2} - {lon1}");
+            Console.WriteLine($"{Symbols.DELTA}{Symbols.LAMBDA} = {Dlon}\n~~~");
 
             // Build hav(θ) formula
             Console.WriteLine($"~  Hav({Symbols.DELTA}{Symbols.PHI})");
@@ -566,22 +649,27 @@ public class Distance
             double cos1 = Math.Cos(lat1);
             double cos2 = Math.Cos(lat2);
 
+            /// TODO: Make C code för this
             // Plug everything
-            double Hav = hav1 + cos1 * cos2 * hav2;
+            // double Hav = hav1 + cos1 * cos2 * hav2;
+            double Hav = CPP_DHav(hav1, cos1, cos2, hav2);
+            // Find theta
+            // double T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
+            double T = CPP_Theta(Hav, true);
+            // Find d with theta
+            // double d = R * T;
+            double d = CPP_DistanceT(T);
+
             Console.WriteLine($"\nhav({Symbols.THETA}) = hav({Symbols.DELTA}{Symbols.PHI}) + cos({Symbols.PHI}{Symbols.SB1}) * cos({Symbols.PHI}{Symbols.SB2}) * hav({Symbols.DELTA}{Symbols.LAMBDA})");
             Console.WriteLine($"hav({Symbols.THETA}) = hav({Dlat}) + cos({lat1}) * cos({lat2}) * hav({Dlon})");
             Console.WriteLine($"hav({Symbols.THETA}) = {hav1} + {cos1} * {cos2} * {hav2}");
             Console.WriteLine($"hav({Symbols.THETA}) = {Hav}\n");
 
-            // Find theta
-            double T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
             Console.WriteLine($"{Symbols.THETA} = 2 * archav({Symbols.THETA})");
             Console.WriteLine($"{Symbols.THETA} = 2 * arctan2({Symbols.SQRT}({Symbols.THETA}), {Symbols.SQRT}(1 - {Symbols.THETA}))");
             Console.WriteLine($"{Symbols.THETA} = 2 * arctan2({Symbols.SQRT}({Hav}), {Symbols.SQRT}({1 - Hav}))");
             Console.WriteLine($"{Symbols.THETA} = {T}\n");
 
-            // Find d with theta
-            double d = R * T;
             Console.WriteLine($"d = R * θ{Symbols.RAD}");
             Console.WriteLine($"d = {R} * {T}");
             Console.WriteLine($"d {Symbols.APRX} {d} KM");
@@ -590,6 +678,8 @@ public class Distance
             return d;
         }
 
+        /// TODO: Make C code för this
+        [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
         public static double Distance(Location A, Location B, bool IsRadian = false)
         {
             double lat1, lon1;
@@ -605,7 +695,8 @@ public class Distance
 
             double Hav, T, d;
 
-            if (!IsRadian) {
+            if (!IsRadian)
+            {
                 lat1 = A.Lat;
                 lon1 = A.Lon;
                 lat2 = B.Lat;
@@ -618,11 +709,17 @@ public class Distance
                 hav2 = Haversine.Hav_deg(Dlon);
                 cos1 = Math.Cos(Haversine.deg2rad(lat1));
                 cos2 = Math.Cos(Haversine.deg2rad(lat2));
-                Hav = hav1 + cos1 * cos2 * hav2;
-                T = 2 * Math.Asin(Math.Sqrt(Hav));
-                d = R * T;
+
+                // Hav = hav1 + cos1 * cos2 * hav2;
+                Hav = CPP_DHav(hav1, cos1, cos2, hav2);
+                // T = 2 * Math.Asin(Math.Sqrt(Hav));
+                T = CPP_Theta(Hav, false);
+                // d = R * T;
+                d = CPP_DistanceT(T);
                 return d;
-            } else {
+            }
+            else
+            {
                 lat1 = A.Lat;
                 lon1 = A.Lon;
                 lat2 = B.Lat;
@@ -635,17 +732,22 @@ public class Distance
                 hav2 = Haversine.Hav_rad(Dlon);
                 cos1 = Math.Cos(lat1);
                 cos2 = Math.Cos(lat2);
-                Hav = hav1 + cos1 * cos2 * hav2;
-                T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
-                d = R * T;
+
+                // Hav = hav1 + cos1 * cos2 * hav2;
+                Hav = CPP_DHav(hav1, cos1, cos2, hav2);
+                // T = 2 * Math.Atan2(Math.Sqrt(Hav), Math.Sqrt(1 - Hav));
+                T = CPP_Theta(Hav, true);
+                // d = R * T;
+                d = CPP_DistanceT(T);
                 return d;
             }
         }
     }
 }
 
-public class Program
+public class ProgramExt
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool CheckEqual(object Var1, object Var2)
     {
         return Equals(Var1, Var2);
@@ -657,69 +759,39 @@ public class Program
         // }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void IPB()
+    public static void ProgramMainRunner()
     {
-        /*
-        [-6.588457, 106.806200]
-        [-6.559582, 106.726720]
-        */
+        ProgramMainRunner(new Location(), new Location(), "");
+    }
 
-        Console.WriteLine($"Current terminal size: {Misc.TerminalSize}");
+    private static void ProgramMainRunner(Location LocA, Location LocB, string tag = "")
+    {
+        if (tag != "")
+        {
+            Console.WriteLine(Misc.PrintMid(tag));
+        }
 
-        Location SV_IPB = new Location("SV IPB", -6.588457, 106.806200, isRadian: false);
-        Location Danau_IPB = new Location("Danau IPB", -6.559582, 106.726720, isRadian: false);
-
-        SV_IPB.Printer();
-        Danau_IPB.Printer();
+        LocA.Printer();
+        LocB.Printer();
 
         Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-        // double D = nDistance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
-        double D = Distance.Distance_2D.Distance_Deg(SV_IPB, Danau_IPB);
+
+        double D = Distance.Distance_2D.Distance_Deg(LocA, LocB);
 
         Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-        SV_IPB.toRadian();
-        Danau_IPB.toRadian();
-
-        // double R = nDistance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
-        double R = Distance.Distance_2D.Distance_Rad(SV_IPB, Danau_IPB);
+        LocA.toRadian();
+        LocB.toRadian();
+        double R = Distance.Distance_2D.Distance_Rad(LocA, LocB);
 
         Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
 
         Console.WriteLine($"Degrees = {D} KM");
         Console.WriteLine($"Radians = {R} KM");
 
-        Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
+        Console.WriteLine(CheckEqual(D, R) ? "C# + C/C++ is APPROVED!": "meh");
     }
 
-    // [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void WikipediaExample()
-    {
-        Location WhiteHouse = new Location("White House WDC", 38.898, 77.037);
-        Location EffielTowr = new Location("Effiel Tower à Paris", 48.858, 2.294);
-
-        WhiteHouse.Printer();
-        EffielTowr.Printer();
-
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Degree", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-
-        double D = Distance.Distance_2D.Distance_Deg(WhiteHouse, EffielTowr);
-
-        WhiteHouse.toRadian();
-        EffielTowr.toRadian();
-
-        Console.WriteLine(Misc.PrintMid(Misc.PrintMid("Radians", '─', offset: -(Misc.TerminalSize / 2), LeftBorder: ' ', RightBorder: ' '), Char: ' ', LeftBorder: ' ', RightBorder: ' '));
-        double R = Distance.Distance_2D.Distance_Rad(WhiteHouse, EffielTowr);
-
-        Console.WriteLine(Misc.Repeater("~", Console.WindowWidth / 2));
-
-        Console.WriteLine($"Degrees = {D} KM");
-        Console.WriteLine($"Radians = {R} KM");
-
-        Console.WriteLine(CheckEqual(D, R) ? "APPROVED!" : "meh");
-    }
-
-    public static void Main(string[] args)
+    public static void ENTRY_MAIN_EXT()
     {
         string TITLE = ColorTx.ColorStr("Haversine Implementation!");
         Console.WriteLine(Misc.PrintMid(TITLE, ' ', LeftBorder: ' ', RightBorder: ' '));
@@ -732,15 +804,16 @@ public class Program
         Console.WriteLine(Misc.PrintMid("IPBs", '─'));
         // Reset color
         Console.ResetColor();
-        IPB();
+        // IPB();
+        ProgramMainRunner(new Location("SV IPB", -6.588457, 106.806200, isRadian: false), new Location("Danau IPB", -6.559582, 106.726720, isRadian: false));
         Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
 
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(Misc.PrintMid("WIkipedia Example", '─'));
         Console.ResetColor();
-        WikipediaExample();
+        // WikipediaExample();
+        ProgramMainRunner(new Location("White House WDC", 38.898, 77.037), new Location("Effiel Tower à Paris", 48.858, 2.294));
         Console.WriteLine(Misc.Repeater("─", Misc.TerminalSize));
-
     }
 }
 

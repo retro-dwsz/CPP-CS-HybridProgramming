@@ -1,43 +1,86 @@
 // The main thing
 
+/**
+ * Compile with the following arguments of Clang or GCC
+ * <COMPILER_BIN> -shared -o CPP_Main.dll .\CPP_SRC\CPP_Main.cpp -O3 -static
+ * 
+ * On windows it should be around 69.632 Bytes
+ * On other platform, maybe it's the same?
+ * 
+ * NOTE:
+ * - Use CPP_<fn> to distinguisch CPP function and CS function 
+ * - Clang is reccomended, but GCC is OK
+ * - This code was originally made in Windows OS,
+ *   if you find anything incompatible for other OSes (like Linux and MacOS),
+ *   please tell me, or if you want, you can fork this so this can be Linux compatible
+ *   and/or MacOS compatible, or anything else.
+ * - Use SEPERATOR to "seperate" function sections, because C is old,
+ *   and "namespace" is not avalable because it's C. Yes it's CPP, but it's just the skin
+ * - Please ingore the error on the CE shortcut, adding ";" will break the ENTIRE code
+*/
+
+#include <stdio.h>
 #include <cmath>
+
+#define SEPERATOR /* ~ ~ ~ ~ ~ ~ ~ ~ */
 #define CE extern "C" __declspec(dllexport)
 
 constexpr double PI = 3.141592653589793;
 
-/****** Basic functions ******/
+/******         Basic functions          ******/
 
-CE
 /* fn: Degree~Radian converter */
-double Convert(double x){
+CE
+double CPP_Convert(double x){
     return x * PI/180;
 }
 /* End fn */
 
-CE
 /* fn: Versed-sine function */
-double Ver(double x){
+CE
+double CPP_Ver(double x){
     return 1 - cos(x);
 }
 /* End fn */
 
+/* fn: Halv Versed-sine function (Radian) */
 CE
-/* fn: Halv Versed-sine function */
-double Hav(double x){
-    return (Ver(x))/2;
+double CPP_Hav(double x, bool Printing){
+    double Cos = CPP_Ver(x);
+    double hHav = Cos/2;
+    
+    if (Printing)
+    {        
+        printf("~! x = %f RAD\n", x);
+        printf("~! cos(x) = %f\n", cos(x));
+        printf("~! 1-cos(x) = %f\n", Cos);
+        printf("~! Hav(x) = %f\n", hHav);
+    } 
+
+    return hHav;
 }
 /* End fn */
-/****** End Basic functions ******/
 
-/****** Distance Haversine functions ******/
+/* fn: Halv Versed-sine function (Degree) */
+CE
+double CPP_HavDeg(double x, bool Printing){
+    return CPP_Hav(CPP_Convert(x), Printing);
+}
+/* End fn */
+
+/******       End Basic functions        ******/
+
+SEPERATOR
+
+/***** *  Distance Haversine functions  * *****/
 
 CE
-double DHav(double dlat, double lon1, double lon2, double dlon){
-    return dlat + lon1 + lon2 + dlon;
+double CPP_DHav(double HAV_dlat, double COS_lon1, double COS_lon2, double HAV_dlon){
+    return HAV_dlat + COS_lon1 * COS_lon2 * HAV_dlon;
 }
 
 CE
-double Theta(double Hav, bool isRadian = false){
+double CPP_Theta(double Hav, bool isRadian = false){
     if(isRadian){
         return 2 * atan2(sqrt(Hav), sqrt(1 - Hav));
     } else {
@@ -46,19 +89,26 @@ double Theta(double Hav, bool isRadian = false){
 }
 
 CE 
-double Distance(double Hav, bool isRadian = false){
-    return 6371.2 * Theta(Hav, isRadian);
+double CPP_DistanceT(double T){
+    return 6371.2 * T;
 }
 
-/****** End Distance Haversine functions ******/
+CE 
+double CPP_Distance(double Hav, bool isRadian = false){
+    return 6371.2 * CPP_Theta(Hav, isRadian);
+}
 
-/****** Raw string functions ******/
+/***** *  End Distance Haversine functions  * *****/
+
+SEPERATOR
+
+/***** *  Raw string functions  * *****/
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 
 CE
-long long int GetUTF8Codepoint(const char* text) {
+long long int CPP_GetUTF8Codepoint(const char* text) {
     // printf("%d chars detected!", strlen(text));
     const unsigned char* u = (const unsigned char*)text;
     long long int cp = 0;
@@ -78,7 +128,7 @@ long long int GetUTF8Codepoint(const char* text) {
 }
 
 CE
-void RawUTF8Print(const char* text) {
+void CPP_RawUTF8Print(const char* text) {
     const unsigned char* u = (const unsigned char*)text;
     // printf("UTF-8 Codepoints (%d char(s)):\n", strlen(text));
     printf("UTF-8 Codepoints:\n");
@@ -90,11 +140,11 @@ void RawUTF8Print(const char* text) {
         else if ((u[0] & 0xF0) == 0xE0)  bytes = 3;
         else if ((u[0] & 0xF8) == 0xF0)  bytes = 4;
 
-        long long cp = GetUTF8Codepoint((const char*)u);
+        long long cp = CPP_GetUTF8Codepoint((const char*)u);
         printf("%.*s \t U+%04llX\n", bytes, u, cp);
 
         u += bytes;
     }
 }
-/****** End Raw string functions ******/
+/***** *  End Raw string functions  * *****/
 
