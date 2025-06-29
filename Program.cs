@@ -1,6 +1,7 @@
 ﻿/* * * Program.cs * * */
 
-// Flattend SRC_CS from another github repo
+// ORIGINAL FILE for entry point
+// This is Flattend SRC_CS from another github repo
 // For testing:
 // DYNAMIC_CS_CPP_HAV_TEST.Program_test.Main_test();
 
