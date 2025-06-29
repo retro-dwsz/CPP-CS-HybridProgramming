@@ -8,7 +8,7 @@ using System;                           // System sauces
 using System.Text;                      // Text stuffs
 using System.Collections.Generic;       // idk
 
-// using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;  // Super Optimization
 
 /* * * * * * * */
@@ -20,8 +20,62 @@ using CS_Misc;
 using CS_Coloring;
 using CS_Distance;
 
+
 public class ProgramExt
 {
+    public static int CheckPlatform()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return 1;
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            return 2;
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            return 3;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public static string GetOS()
+    {
+        int c = CheckPlatform();
+
+        switch (c)
+        {
+            default: return "unknown";
+            case 1: return "Windows";
+            case 2: return "Linux";
+            case 3: return "OSX";
+        }
+    }
+
+    public static string GetCPU() {
+        Architecture arch = RuntimeInformation.ProcessArchitecture;
+        switch (arch)
+        {
+            default: return "unknown";
+            case Architecture.X64:
+                // Console.WriteLine("64-bit");
+                return "64-bit";
+            case Architecture.X86:
+                // Console.WriteLine("32-bit");
+                return "32-bit";
+            case Architecture.Arm:
+                // Console.WriteLine("ARM");
+                return "ARM";
+            case Architecture.Arm64:
+                // Console.WriteLine("ARM64");
+                return "ARM64";
+        }
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool CheckEqual(object Var1, object Var2)
     {
@@ -68,6 +122,7 @@ public class ProgramExt
 
     public static void ENTRY_MAIN_EXT()
     {
+        Console.WriteLine($"Running on {GetOS()} with {GetCPU()} CPU");
         string TITLE = ColorTx.ColorStr("Haversine Implementation!");
         Console.WriteLine(Misc.PrintMid(TITLE, ' ', LeftBorder: ' ', RightBorder: ' '));
         Console.WriteLine($"Terminal size: {Misc.TerminalSize}");
