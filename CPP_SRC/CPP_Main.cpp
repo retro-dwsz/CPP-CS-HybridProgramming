@@ -2,7 +2,7 @@
 
 /**
  * Compile with the following arguments of Clang or GCC
- * <COMPILER_BIN> -shared -o CPP_Main.dll .\CPP_SRC\CPP_Main.cpp -O3 -static
+ * <COMPILER_BIN> -shared -o CPP_Main.dll .\CPP_SRC\CPP_Main.cpp -O3 -fPIC
  * 
  * On windows it should be around 69.632 Bytes
  * On other platform, maybe it's the same?
@@ -23,7 +23,13 @@
 #include <cmath>
 
 #define SEPERATOR /* ~ ~ ~ ~ ~ ~ ~ ~ */
-#define CE extern "C" __declspec(dllexport)
+
+#if defined(_WIN32)
+    #define CE extern "C" __declspec(dllexport)
+#elif defined(__linux__)
+    #define CE extern "C" 
+#endif
+
 
 constexpr double PI = 3.141592653589793;
 
