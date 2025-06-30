@@ -40,8 +40,8 @@
 # [Dd]ebug/
 # [Rr]elease/
 # x64/
-[Bb]in/*
-# [Oo]bj/
+[Bb]in/
+# [Oo]bj/   # DON'T IGNORE OBJS!!
 
 *.rar
 .idea/

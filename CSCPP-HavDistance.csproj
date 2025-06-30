@@ -35,6 +35,32 @@
     <OutputPath>CS_Compiled/HybridOut/</OutputPath>
     <PublishDir>CS_Compiled/Published/</PublishDir>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
+    <OutputPath>CS_Compiled_LINUX/HybridOut/</OutputPath>          <!-- Output build -->
+    <PublishDir>CS_Compiled_LINUX/Published/</PublishDir>          <!-- Output publish -->
+
+    <!-- Optimization -->
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- Trimming & Size Optimization -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StripSymbols>true</StripSymbols>
+
+    <!-- AOT Native Compilation -->
+    <PublishAot>true</PublishAot>
+    <IlcDisableReflection>true</IlcDisableReflection>
+    <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+
+    <!-- Compression -->
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+
+    <!-- AOT and SingleFile can't be used together, so this must be false -->
+    <PublishSingleFile>false</PublishSingleFile>
+  </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <SelfContained>false</SelfContained>
