@@ -816,9 +816,16 @@ public class Program
 
     public static void Main()
     {
-        // ENTRY_MAIN();
-        // ENTRY_TEST();
-        ProgramExt.ENTRY_MAIN_EXT();
+        try
+        {
+            // ENTRY_MAIN();
+            // ENTRY_TEST();
+            ProgramExt.ENTRY_MAIN_EXT();
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
     }
 }
 
