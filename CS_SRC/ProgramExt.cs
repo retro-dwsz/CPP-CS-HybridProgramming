@@ -73,6 +73,10 @@ public class ProgramExt
             case Architecture.Arm64:
                 // Console.WriteLine("ARM64");
                 return "ARM64";
+            case Architecture.Armv6:
+                return "ARMv6";
+            case Architecture.RiscV64:
+                return "RISC-V";
         }
     }
 

@@ -1,6 +1,7 @@
 using DYNAMIC_CS_CPP_HAV;
 using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace CS_ExternCPP;
 
@@ -8,6 +9,33 @@ namespace CS_ExternCPP;
 public class DynamicOS
 {
     public class CPP_WINDOWS
+    {
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_Convert(double x);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_Hav(double x, bool Printing);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_HavDeg(double x, bool Printing);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_RawUTF8Print(string text);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_Theta(double Hav, bool isRadian = false);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_Distance(double Hav, bool isRadian = false);
+
+        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double CPP_DistanceT(double T);
+    }
+
+    public class CPP_WINDOWS_X86
     {
         [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
@@ -64,6 +92,29 @@ public class DynamicOS
 
 public class CPP
 {
+    public static string GetCPU() {
+        Architecture arch = RuntimeInformation.ProcessArchitecture;
+        switch (arch)
+        {
+            default: return "unknown";
+            case Architecture.X64:
+                // Console.WriteLine("x86-64");
+                return "x64";
+            case Architecture.X86:
+                // Console.WriteLine("x86");
+                return "x86";
+            case Architecture.Arm:
+                // Console.WriteLine("ARM");
+                return "ARM";
+            case Architecture.Arm64:
+                // Console.WriteLine("ARM64");
+                return "ARM64";
+            case Architecture.Armv6:
+                return "ARMv6";
+            case Architecture.RiscV64:
+                return "RISC-V";
+        }
+    }
     public static int CheckPlatform()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -101,9 +152,21 @@ public class CPP
     public static double CPP_Convert(double x)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
-            return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
+            if (CPU == "X64")
+            {
+                return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
+            }
+            else if (CPU == "X86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_Convert(x);
+            }
+            else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -114,9 +177,20 @@ public class CPP
     public static double CPP_Hav(double x, bool Printing)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_Hav(x, Printing);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -127,9 +201,20 @@ public class CPP
     public static double CPP_HavDeg(double x, bool Printing)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_HavDeg(x, Printing);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -140,9 +225,20 @@ public class CPP
     public static double CPP_RawUTF8Print(string text)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_RawUTF8Print(text);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -153,9 +249,20 @@ public class CPP
     public static double CPP_DHav(double dlat, double lon1, double lon2, double dlon)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_DHav(dlat, lon1, lon2, dlon);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -166,9 +273,20 @@ public class CPP
     public static double CPP_Theta(double Hav, bool isRadian = false)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_Theta(Hav, isRadian);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -179,9 +297,20 @@ public class CPP
     public static double CPP_Distance(double Hav, bool isRadian = false)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_Distance(Hav, isRadian);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
@@ -192,9 +321,20 @@ public class CPP
     public static double CPP_DistanceT(double T)
     {
         string Platform = GetOS();
+        string CPU = GetCPU();
         if (Platform == "Windows")
         {
+            if(CPU == "X64")
+            {
             return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
+
+            } else if (CPU == "86")
+            {
+                return DynamicOS.CPP_WINDOWS_X86.CPP_DistanceT(T);
+            } else
+            {
+                return 0.0;
+            }
         }
         else
         {
