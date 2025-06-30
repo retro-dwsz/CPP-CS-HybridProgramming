@@ -76,3 +76,55 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+r'''
+03:30 ~.\Hybrid Programming [28ms]
+~$ dir
+
+    Directory: D:\Code\!Docs\Obsolete Trig\Hybrid Programming
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          29/06/2025    01.33                .idea
+d----          29/06/2025    21.30                .vscode
+d----          01/07/2025    03.08                CPP_BC
+d----          26/06/2025    01.01                CPP_SRC
+d----          01/07/2025    02.57                CS_Compiled
+d----          01/07/2025    02.58                CS_Compiled_LINUX
+d----          29/06/2025    22.08                CS_SRC
+d----          01/07/2025    02.58                obj
+d----          29/06/2025    01.22                test
+-a---          01/07/2025    02.39            472 .gitignore
+-a---          27/06/2025    01.11        1277952 Coffee.dll
+-a---          24/06/2025    00.08           2229 compile.py
+-a---          29/06/2025    21.36          16016 CPP_Main_LINUX.dll
+-a---          01/07/2025    03.08          69632 CPP_Main_X64.dll
+-a---          01/07/2025    03.08          60416 CPP_Main_X86.dll
+-a---          29/06/2025    01.05          69632 CPP_Main.dll
+-a---          01/07/2025    02.57           3442 CSCPP-HavDistance.csproj
+-a---          23/06/2025    01.24           1128 Hybrid Programming.sln
+-a---          23/06/2025    00.58           1093 LICENSE
+-a---          01/07/2025    00.35          32075 Program.cs
+-a---          29/06/2025    01.25           3502 README.md
+-a---          24/06/2025    20.21         326995 test.zip
+
+
+03:30 ~.\Hybrid Programming [9ms]
+~$ Get-ChildItem -Recurse | Measure-Object -Sum Length
+
+Count             : 920
+Average           :
+Sum               : 345668499
+Maximum           :
+Minimum           :
+StandardDeviation :
+Property          : Length
+
+
+03:30 ~.\Hybrid Programming [20ms]
+~$ getsize
+Total size: 329,7 MiB
+
+03:30 ~.\Hybrid Programming [41ms]
+~$
+'''
