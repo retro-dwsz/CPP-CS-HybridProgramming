@@ -22,24 +22,34 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <PublishSingleFile>false</PublishSingleFile> <!-- AOT dan SingleFile gak bisa bareng -->
+    <!-- AOT dan SingleFile gak bisa bareng -->
+    <PublishSingleFile>false</PublishSingleFile>
+
+    <OutputPath>CS_Compiled/Out/</OutputPath>           <!-- Output build -->
+    <PublishDir>CS_Compiled/Public/</PublishDir>           <!-- Output publish -->
+
+    <!-- Optimization -->
     <Optimize>true</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <InvariantGlobalization>true</InvariantGlobalization>
+
+    <!-- Trimming & Size Optimization -->
     <PublishTrimmed>true</PublishTrimmed>
-    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
     <StripSymbols>true</StripSymbols>
+
+    <!-- AOT Native Compilation -->
+    <PublishAot>true</PublishAot>
     <IlcDisableReflection>true</IlcDisableReflection>
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+
+    <!-- Compression -->
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
-    <OutputPath>CS_Compiled/HybridOut/</OutputPath>
-    <PublishDir>CS_Compiled/Published/</PublishDir>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
-    <OutputPath>CS_Compiled_LINUX/HybridOut/</OutputPath>          <!-- Output build -->
-    <PublishDir>CS_Compiled_LINUX/Published/</PublishDir>          <!-- Output publish -->
+    <OutputPath>CS_Compiled_LINUX/Out/</OutputPath>   <!-- Output build -->
+    <PublishDir>CS_Compiled_LINUX/Public/</PublishDir>   <!-- Output publish -->
 
     <!-- Optimization -->
     <Optimize>true</Optimize>
@@ -70,8 +80,8 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <Optimize>false</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>CS_Compiled/DEBUG/HybridOut/</OutputPath>
-    <PublishDir>CS_Compiled/DEBUG/Published/</PublishDir>
+    <OutputPath>CS_Compiled/DEBUG/Out/</OutputPath>
+    <PublishDir>CS_Compiled/DEBUG/Public/</PublishDir>
   </PropertyGroup>
 
 </Project>
