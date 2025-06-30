@@ -62,11 +62,11 @@ public class ProgramExt
         {
             default: return "unknown";
             case Architecture.X64:
-                // Console.WriteLine("64-bit");
-                return "64-bit";
+                // Console.WriteLine("x86-64");
+                return "x86-64";
             case Architecture.X86:
-                // Console.WriteLine("32-bit");
-                return "32-bit";
+                // Console.WriteLine("x86");
+                return "x86";
             case Architecture.Arm:
                 // Console.WriteLine("ARM");
                 return "ARM";
