@@ -25,8 +25,8 @@
     <!-- AOT dan SingleFile gak bisa bareng -->
     <PublishSingleFile>false</PublishSingleFile>
 
-    <OutputPath>CS_Compiled/Out/</OutputPath>           <!-- Output build -->
-    <PublishDir>CS_Compiled/Public/</PublishDir>           <!-- Output publish -->
+    <OutputPath>CS_Compiled/Build/</OutputPath>           <!-- Output build -->
+    <PublishDir>CS_Compiled/Publish/</PublishDir>           <!-- Output publish -->
 
     <!-- Optimization -->
     <Optimize>true</Optimize>
@@ -48,8 +48,8 @@
 
   <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
-    <OutputPath>CS_Compiled_LINUX/Out/</OutputPath>   <!-- Output build -->
-    <PublishDir>CS_Compiled_LINUX/Public/</PublishDir>   <!-- Output publish -->
+    <OutputPath>CS_Compiled_LINUX/Build/</OutputPath>   <!-- Output build -->
+    <PublishDir>CS_Compiled_LINUX/Publish/</PublishDir>   <!-- Output publish -->
 
     <!-- Optimization -->
     <Optimize>true</Optimize>
@@ -80,8 +80,8 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <Optimize>false</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>CS_Compiled/DEBUG/Out/</OutputPath>
-    <PublishDir>CS_Compiled/DEBUG/Public/</PublishDir>
+    <OutputPath>CS_Compiled/_DEBUG/Build/</OutputPath>
+    <PublishDir>CS_Compiled/_DEBUG/Publish/</PublishDir>
   </PropertyGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿"obj\Release\net9.0\win-x64\native\CSCPP-HavDistance.obj"
-/OUT:"CS_Compiled/HybridOut/net9.0\win-x64\native\CSCPP-HavDistance.exe"
+/OUT:"CS_Compiled/Build/net9.0\win-x64\native\CSCPP-HavDistance.exe"
 /DEF:"obj\Release\net9.0\win-x64\native\CSCPP-HavDistance.def"
 /LIBPATH:"D:\Code\MSVC\MSVC_IDE\VC\Tools\MSVC\14.44.35207\ATLMFC\lib\x64"
 /LIBPATH:"D:\Code\MSVC\MSVC_IDE\VC\Tools\MSVC\14.44.35207\lib\x64"
