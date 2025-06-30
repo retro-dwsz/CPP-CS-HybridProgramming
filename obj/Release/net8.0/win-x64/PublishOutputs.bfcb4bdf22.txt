@@ -1,0 +1,2 @@
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net8.0\win-x64\publish\CSCPP-HavDistance.pdb
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net8.0\win-x64\publish\CSCPP-HavDistance.exe

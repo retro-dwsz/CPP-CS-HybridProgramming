@@ -1,0 +1,15 @@
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.AssemblyInfoInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.AssemblyInfo.cs
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.csproj.CoreCompileInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.sourcelink.json
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Debug\net9.0\win-x64\CSCPP-HavDistance.exe
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Debug\net9.0\win-x64\CSCPP-HavDistance.deps.json
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Debug\net9.0\win-x64\CSCPP-HavDistance.runtimeconfig.json
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Debug\net9.0\win-x64\CSCPP-HavDistance.dll
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Debug\net9.0\win-x64\CSCPP-HavDistance.pdb
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.dll
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\refint\CSCPP-HavDistance.dll
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.pdb
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\CSCPP-HavDistance.genruntimeconfig.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Debug\net9.0\win-x64\ref\CSCPP-HavDistance.dll

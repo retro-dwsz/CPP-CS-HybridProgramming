@@ -35,7 +35,7 @@
     <OutputPath>CS_Compiled/HybridOut/</OutputPath>
     <PublishDir>CS_Compiled/Published/</PublishDir>
   </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <SelfContained>false</SelfContained>
     <PublishAot>false</PublishAot>
@@ -44,6 +44,8 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <Optimize>false</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>CS_Compiled/DEBUG/HybridOut/</OutputPath>
+    <PublishDir>CS_Compiled/DEBUG/Published/</PublishDir>
   </PropertyGroup>
 
 </Project>

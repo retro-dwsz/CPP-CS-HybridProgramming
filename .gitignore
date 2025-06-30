@@ -40,7 +40,9 @@
 # [Dd]ebug/
 # [Rr]elease/
 # x64/
-[Bb]in/
-[Oo]bj/
+[Bb]in/*
+# [Oo]bj/
 
 *.rar
+.idea/
+.vscode/
