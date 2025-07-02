@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 
 namespace CS_ExternCPP_d;
 
-// NOT FULLY IMPLEMENTED YET!
 public class DynamicOS
 {
     public static void Error()
