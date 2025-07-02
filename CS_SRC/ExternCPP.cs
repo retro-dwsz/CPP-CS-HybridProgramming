@@ -6,8 +6,6 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 // using System.Runtime.Versioning;
 
-namespace CS_ExternCPP;
-
 // NOT FULLY IMPLEMENTED YET!
 public class CPP_F
 {

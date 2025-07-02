@@ -1,13 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Dt4DTE17WRA=",
+  "dgSpecHash": "hNjhpCQa4Jo=",
   "success": true,
   "projectFilePath": "/home/rdvorzak-vmware/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
   "expectedPackageFiles": [
-    "/home/rdvorzak-vmware/.nuget/packages/microsoft.dotnet.ilcompiler/9.0.6/microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
     "/home/rdvorzak-vmware/.nuget/packages/microsoft.net.illink.tasks/9.0.6/microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
-    "/home/rdvorzak-vmware/.nuget/packages/runtime.linux-x64.microsoft.dotnet.ilcompiler/9.0.6/runtime.linux-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
-    "/home/rdvorzak-vmware/.nuget/packages/runtime.linux-x64.microsoft.dotnet.ilcompiler/9.0.6/runtime.linux-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512"
+    "/home/rdvorzak-vmware/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/9.0.6/microsoft.netcore.app.runtime.linux-x64.9.0.6.nupkg.sha512",
+    "/home/rdvorzak-vmware/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/9.0.6/microsoft.aspnetcore.app.runtime.linux-x64.9.0.6.nupkg.sha512"
   ],
   "logs": []
 }

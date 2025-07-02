@@ -189,10 +189,10 @@ public class DynamicOS
     {
         public class X64
         {
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
             [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
@@ -249,41 +249,72 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(x);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
-            }
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
+                    case DEBUG.CPU.ARM:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
+                    case DEBUG.CPU.ARM:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_Convert(x);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(x);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_Convert(x);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
-        }
+
+        // if (Platform == DEBUG.OS.Windows)
+        // {
+        //     if (CPU == DEBUG.CPU.X64)
+        //     {
+        //         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
+        //     }
+        //     else if (CPU == DEBUG.CPU.ARM64)
+        //     {
+        //         return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(x);
+        //     }
+        //     else
+        //     {
+        //         return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
+        //     }
+        // }
+        // else if (Platform == DEBUG.OS.Linux)
+        // {
+        //     if (CPU == DEBUG.CPU.X64)
+        //     {
+        //         return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
+        //     }
+        //     else if (CPU == DEBUG.CPU.ARM64)
+        //     {
+        //         return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(x);
+        //     }
+        //     else
+        //     {
+        //         return DynamicOS.CPP_LINUX.CPP_Convert(x);
+        //     }
+        // }
+        // else
+        // {
+        //     DynamicOS.Error();
+        //     return 0;
+        // }
     }
 
     public static double CPP_Hav(double x, bool Printing)
@@ -540,30 +571,30 @@ public class CPP
         {
             if (CPU == DEBUG.CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(T);
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_DistanceT(T);
             }
             else if (CPU == DEBUG.CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(T);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_DistanceT(T);
             }
             else
             {
-                return DynamicOS.CPP_WINDOWS.CPP_Convert(T);
+                return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
             }
         }
         else if (Platform == DEBUG.OS.Linux)
         {
             if (CPU == DEBUG.CPU.X64)
             {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(T);
+                return DynamicOS.CPP_LINUX_D.X64.CPP_DistanceT(T);
             }
             else if (CPU == DEBUG.CPU.ARM64)
             {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(T);
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_DistanceT(T);
             }
             else
             {
-                return DynamicOS.CPP_LINUX.CPP_Convert(T);
+                return DynamicOS.CPP_LINUX.CPP_DistanceT(T);
             }
         }
         else

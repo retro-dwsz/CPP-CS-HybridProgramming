@@ -64,12 +64,12 @@
     <StripSymbols>true</StripSymbols>
 
     <!-- AOT Native Compilation -->
-    <PublishAot>true</PublishAot>
+    <!-- <PublishAot>true</PublishAot> --> <!-- PROBLEM OF LINUX -->
     <IlcDisableReflection>true</IlcDisableReflection>
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
 
     <!-- Compression -->
-    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <!-- <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile> -->
 
     <!-- AOT and SingleFile can't be used together, so this must be false -->
     <PublishSingleFile>false</PublishSingleFile>

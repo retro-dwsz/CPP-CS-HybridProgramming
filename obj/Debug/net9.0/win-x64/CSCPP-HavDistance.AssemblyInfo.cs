@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Haversine calculator with Hybrid-Programming C/C++ and C#")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d581c01c0ad2f90c4d372dbc7754a64837d9aeb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2980dbaaeab2635e73d3d1d345af85cf3cb779d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSCPP-HavDistance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSCPP-HavDistance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
