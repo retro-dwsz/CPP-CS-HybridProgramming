@@ -199,11 +199,8 @@ public class CPP
     enum CPU
     {
         X64,
-        X86,
         ARM,
         ARM64,
-        ARMv6,
-        RISCV,
         Unknown
     }
 
@@ -214,19 +211,10 @@ public class CPP
         {
             default: return CPU.Unknown;
             case Architecture.X64:
-                return CPU.X64;
-            case Architecture.X86:
-                return CPU.X86;
             case Architecture.Arm:
                 return CPU.ARM;
             case Architecture.Arm64:
                 return CPU.ARM64;
-            case Architecture.Armv6:
-                return CPU.ARMv6;
-            case Architecture.RiscV64:
-                return CPU.RISCV;
-            case Architecture.LoongArch64:
-                return CPU.Unknown;
         }
     }
     private static OS GetOS()
@@ -258,15 +246,15 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_Convert(x);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(x);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
             }
         }
         else if (Platform == OS.Linux)
@@ -275,9 +263,9 @@ public class CPP
             {
                 return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_LINUX_D.X86.CPP_Convert(x);
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(x);
             }
             else
             {
@@ -299,21 +287,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Hav(x, Printing);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_Hav(x, Printing);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Hav(x, Printing);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_Hav(x, Printing);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Hav(x, Printing);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_Hav(x, Printing);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_Hav(x, Printing);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -325,21 +328,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_HavDeg(x, Printing);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_HavDeg(x, Printing);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_HavDeg(x, Printing);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_HavDeg(x, Printing);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_HavDeg(x, Printing);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_HavDeg(x, Printing);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_HavDeg(x, Printing);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -351,21 +369,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_RawUTF8Print(text);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_RawUTF8Print(text);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_RawUTF8Print(text);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_RawUTF8Print(text);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_RawUTF8Print(text);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_RawUTF8Print(text);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_RawUTF8Print(text);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -377,21 +410,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_DHav(dlat, lon1, lon2, dlon);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_DHav(dlat, lon1, lon2, dlon);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_DHav(dlat, lon1, lon2, dlon);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_DHav(dlat, lon1, lon2, dlon);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_DHav(dlat, lon1, lon2, dlon);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -403,21 +451,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Theta(Hav, isRadian);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_Theta(Hav, isRadian);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Theta(Hav, isRadian);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_Theta(Hav, isRadian);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Theta(Hav, isRadian);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_Theta(Hav, isRadian);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_Theta(Hav, isRadian);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -429,21 +492,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Distance(Hav, isRadian);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_Distance(Hav, isRadian);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Distance(Hav, isRadian);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_Distance(Hav, isRadian);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Distance(Hav, isRadian);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_Distance(Hav, isRadian);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_Distance(Hav, isRadian);
+            DynamicOS.Error();
+            return 0;
         }
     }
 
@@ -455,21 +533,36 @@ public class CPP
         {
             if (CPU == CPU.X64)
             {
-                return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
-
+                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(T);
             }
-            else if (CPU == CPU.X86)
+            else if (CPU == CPU.ARM64)
             {
-                return DynamicOS.CPP_WINDOWS_D.X86.CPP_DistanceT(T);
+                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(T);
             }
             else
             {
-                return 0.0;
+                return DynamicOS.CPP_WINDOWS.CPP_Convert(T);
+            }
+        }
+        else if (Platform == OS.Linux)
+        {
+            if (CPU == CPU.X64)
+            {
+                return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(T);
+            }
+            else if (CPU == CPU.ARM64)
+            {
+                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(T);
+            }
+            else
+            {
+                return DynamicOS.CPP_LINUX.CPP_Convert(T);
             }
         }
         else
         {
-            return DynamicOS.CPP_LINUX.CPP_DistanceT(T);
+            DynamicOS.Error();
+            return 0;
         }
     }
 }
