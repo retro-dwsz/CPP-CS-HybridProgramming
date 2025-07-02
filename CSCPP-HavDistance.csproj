@@ -21,11 +21,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <!-- WINDOWS -->
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <!-- AOT dan SingleFile gak bisa bareng -->
     <PublishSingleFile>false</PublishSingleFile>
 
-    <OutputPath>CS_Compiled/Build/</OutputPath>           <!-- Output build -->
+    <OutputPath>CS_Compiled/Build/</OutputPath>             <!-- Output build -->
     <PublishDir>CS_Compiled/Publish/</PublishDir>           <!-- Output publish -->
 
     <!-- Optimization -->
@@ -46,6 +47,7 @@
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
 
+  <!-- LINUX -->
   <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
     <OutputPath>CS_Compiled_LINUX/Build/</OutputPath>   <!-- Output build -->
