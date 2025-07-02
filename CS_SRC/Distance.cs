@@ -33,7 +33,8 @@ public class Distance
         {
             // Print Degree coordinates 
             Console.WriteLine($"Coords in Degrees");
-
+            CS_ExternCPP_d.DEBUG.GetStatusSystem();
+            
             // Latitudes
             double lat1 = A.Lat;
             double lon1 = A.Lon;
