@@ -9,32 +9,24 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\David Sirait\\.nuget\\packages\\": {},
-    "D:\\Code\\MSVC\\MSVC_IDE_Shared\\NuGetPackages": {}
+    "/home/rdvorzak-vmware/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj",
+      "projectUniqueName": "/home/rdvorzak-vmware/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
       "projectName": "CSCPP-HavDistance",
-      "projectPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj",
-      "packagesPath": "C:\\Users\\David Sirait\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\obj\\",
+      "projectPath": "/home/rdvorzak-vmware/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
+      "packagesPath": "/home/rdvorzak-vmware/.nuget/packages/",
+      "outputPath": "/home/rdvorzak-vmware/Desktop/Code/CPP-CS-HybridProgramming/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Code\\MSVC\\MSVC_IDE_Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\David Sirait\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/rdvorzak-vmware/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -69,12 +61,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[9.0.6, 9.0.6]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/rdvorzak-vmware/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

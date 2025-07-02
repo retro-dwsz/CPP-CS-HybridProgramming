@@ -73,60 +73,6 @@ public class DynamicOS
             public static extern double CPP_DistanceT(double T);
         }
 
-        public class X86
-        {
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
-        public class ARM
-        {
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
         public class ARM64
         {
             [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -153,61 +99,6 @@ public class DynamicOS
             [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
-
-        public class ARMv6
-        {
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
-        public class RISCV
-        {
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
     }
 
 
@@ -267,60 +158,6 @@ public class DynamicOS
             public static extern double CPP_DistanceT(double T);
         }
 
-        public class X86
-        {
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_X86.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
-        public class ARM
-        {
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_ARM.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
         public class ARM64
         {
             [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -347,61 +184,6 @@ public class DynamicOS
             [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
-
-        public class ARMv6
-        {
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_ARMv6.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
-        public class RISCV
-        {
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Convert(double x);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Hav(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_HavDeg(double x, bool Printing);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_RawUTF8Print(string text);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Theta(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_Distance(double Hav, bool isRadian = false);
-
-            [DllImport("CPP_Main_LINUX_RISCV.dll", CallingConvention = CallingConvention.Cdecl)]
-            public static extern double CPP_DistanceT(double T);
-        }
-
     }
 }
 
