@@ -160,28 +160,28 @@ public class DynamicOS
 
     public class CPP_LINUX
     {
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Hav(double x, bool Printing);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_HavDeg(double x, bool Printing);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_RawUTF8Print(string text);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main_LINUX.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DistanceT(double T);
     }
 
@@ -195,49 +195,49 @@ public class DynamicOS
             [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
 
         public class ARM64
         {
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
     }
