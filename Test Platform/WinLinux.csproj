@@ -1,0 +1,91 @@
+﻿<!-- CSCPP-HavDistance.csproj -->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget> <!-- ✅ FIXED -->
+    <Description>Haversine calculator with Hybrid-Programming C/C++ and C#</Description>
+    <ApplicationVersion>1.0</ApplicationVersion>
+
+    <!-- Default for Debug build -->
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishAot>false</PublishAot>
+    <PublishSingleFile>false</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <!-- WINDOWS -->
+  <PropertyGroup Condition="'$(Configuration)' == 'ReleaseWindows'">
+    <!-- AOT dan SingleFile gak bisa bareng -->
+    <PublishSingleFile>false</PublishSingleFile>
+
+    <OutputPath>CS_Compiled/Build/</OutputPath>             <!-- Output build -->
+    <PublishDir>CS_Compiled/Publish/</PublishDir>           <!-- Output publish -->
+
+    <!-- Optimization -->
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- Trimming & Size Optimization -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StripSymbols>true</StripSymbols>
+
+    <!-- AOT Native Compilation -->
+    <PublishAot>true</PublishAot>
+    <IlcDisableReflection>true</IlcDisableReflection>
+    <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+
+    <!-- Compression -->
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <!-- LINUX -->
+  <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
+    <OutputPath>CS_Compiled_LINUX/Build/</OutputPath>   <!-- Output build -->
+    <PublishDir>CS_Compiled_LINUX/Publish/</PublishDir>   <!-- Output publish -->
+
+    <!-- Optimization -->
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NativeLibLinkArguments>-lstdc++</NativeLibLinkArguments>
+
+    <!-- Trimming & Size Optimization -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StripSymbols>true</StripSymbols>
+
+    <!-- AOT Native Compilation -->
+    <!-- <PublishAot>true</PublishAot> --> <!-- PROBLEM OF LINUX -->
+    <IlcDisableReflection>true</IlcDisableReflection>
+    <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+
+    <!-- Compression -->
+    <!-- <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile> -->
+
+    <!-- AOT and SingleFile can't be used together, so this must be false -->
+    <PublishSingleFile>false</PublishSingleFile>
+
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <SelfContained>false</SelfContained>
+    <PublishAot>false</PublishAot>
+    <PublishSingleFile>false</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>CS_Compiled/_DEBUG/Build/</OutputPath>
+    <PublishDir>CS_Compiled/_DEBUG/Publish/</PublishDir>
+  </PropertyGroup>
+
+</Project>

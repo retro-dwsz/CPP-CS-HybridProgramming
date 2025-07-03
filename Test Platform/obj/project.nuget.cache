@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "wTwKeECP/lQ=",
+  "success": true,
+  "projectFilePath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\9.0.6\\microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.6\\microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
