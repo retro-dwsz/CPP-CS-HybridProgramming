@@ -108,42 +108,42 @@ public class Extern
     {
         public class x64
         {
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern void __TEST__();
 
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern double convert(double x);
 
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_rad(double x);
 
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_deg(double x);
 
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Rad(double latA, double lonA, double latB, double lonB);
 
-            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Deg(double latA, double lonA, double latB, double lonB);
         }
         public class x86
         {
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern void __TEST__();
 
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern double convert(double x);
 
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_rad(double x);
 
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_deg(double x);
 
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Rad(double latA, double lonA, double latB, double lonB);
 
-            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Deg(double latA, double lonA, double latB, double lonB);
         }
     }
