@@ -182,28 +182,3 @@ public class Program
 }
 
 /* * * End Program.cs * * */
-
-/*
-    6     6   │clang++ -shared -std=c++23 -o $file.dll $file.ll -fPIC                                                                                         
-    7     7   '''                                                                                                                                             
-    8     8                                                                                                                                                   
-    9     9   import os                                                                                                                                       
-   10    10                                                                                                                                                   
-   11    11   # File list — only C++ source files, NOT headers!                                                                                               
-   12    12   cpp_files = [                                                                                                                                   
-   13    13   │   "Distance.cpp",                                                                                                                             
-   14    14   │   "Haversine.cpp",                                                                                                                            
-   15    15   │   "main.cpp",          # Optional, only if needed                                                                                             
-   16    16   │   # Add more .cpp files                                                                                                                       
-   17    17   ]                                                                                                                                               
-   18    18                                                                                                                                                   
-   19    19   # Directories                                                                                                                                   
-   20    20   SRC_DIR = "./CPP_SRC"                                                                                                                           
-   21    21   LL_DIR  = "./CPP_LL"                                                                                                                            
-   22    22   DLL_DIR = "./CPP_DLL"                                                                                                                           
-   23    23                                                                                                                                                   
-   24    24   def compile_to_llvm(src_file: str) -> str:                                                                                                      
-   25    25   │   """Compile .cpp to .ll (LLVM IR)"""                                                                                                         
-   26  NORMAL   main  󰌠  compile.py                                                                                       35   1  14%  19:44   01:26 
- NORMAL   main  term:\…\system32\cmd.exe                               
-*/
