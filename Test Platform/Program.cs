@@ -61,6 +61,32 @@ public class Debug
         }
     }
 
+    public static string GetOS_S()
+    {
+        OS OS = GetOS();
+        switch (OS)
+        {
+            case OS.Windows: return "Windows";
+            case OS.Linux: return "Linux";
+            case OS.Apple: return "Apple";
+            default: return "unknwon";
+        }
+    }
+
+    public static string GetCPU_S()
+    {
+        CPU CPU = GetCPU();
+        switch (CPU)
+        {
+            case CPU.X86: return "X86";
+            case CPU.X64: return "X64";
+            case CPU.ARM: return "ARM";
+            case CPU.ARM64: return "ARM64";
+            case CPU.Unknown: return "unkown";
+            default: return "unknown";
+        }
+    }
+
     public static void GetStatusSystem()
     {
         /* BUG:
@@ -69,8 +95,8 @@ public class Debug
         publish:    Running on 1 on 1 CPU
         
         */
-        string OS = GetOS().ToString();
-        string CPU = GetCPU().ToString();
+        string OS = GetOS_S();
+        string CPU = GetCPU_S();
         Console.WriteLine($"Running on {OS} on {CPU} CPU");
     }
 }
@@ -453,7 +479,7 @@ class Program
 
         // Console.ForegroundColor =
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.Write($"Output: ");
+        Console.Write($"Output  \t ");
 
         Console.BackgroundColor = nowBack;
         Console.ForegroundColor = nowFore;
@@ -466,7 +492,7 @@ class Program
 
         // Console.ForegroundColor =
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.Write($"Function: ");
+        Console.Write($"Function\t ");
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine($"{name}");
 

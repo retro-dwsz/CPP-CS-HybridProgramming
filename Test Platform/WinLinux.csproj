@@ -36,7 +36,7 @@
     <!-- Trimming & Size Optimization -->
     <PublishTrimmed>true</PublishTrimmed>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <StripSymbols>true</StripSymbols>
+    <StripSymbols>false</StripSymbols>
 
     <!-- AOT Native Compilation -->
     <PublishAot>true</PublishAot>
@@ -61,7 +61,7 @@
     <!-- Trimming & Size Optimization -->
     <PublishTrimmed>true</PublishTrimmed>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <StripSymbols>true</StripSymbols>
+    <StripSymbols>false</StripSymbols>
 
     <!-- AOT Native Compilation -->
     <!-- PROBLEM OF LINUX -->
