@@ -194,8 +194,6 @@ obj\ReleaseWindows\net9.0\win-x64\WinLinux.dll
 --feature:System.ComponentModel.TypeConverter.EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization=false
 --feature:System.ComponentModel.TypeDescriptor.IsComObjectDescriptorSupported=false
 --feature:System.Diagnostics.Tracing.EventSource.IsSupported=false
---feature:System.Globalization.Invariant=true
---feature:System.Globalization.PredefinedCulturesOnly=true
 --feature:System.Reflection.Metadata.MetadataUpdater.IsSupported=false
 --feature:System.Resources.ResourceManager.AllowCustomResourceTypes=false
 --feature:System.Resources.UseSystemResourceKeys=true
@@ -217,8 +215,6 @@ obj\ReleaseWindows\net9.0\win-x64\WinLinux.dll
 --runtimeknob:System.ComponentModel.TypeConverter.EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization=false
 --runtimeknob:System.ComponentModel.TypeDescriptor.IsComObjectDescriptorSupported=false
 --runtimeknob:System.Diagnostics.Tracing.EventSource.IsSupported=false
---runtimeknob:System.Globalization.Invariant=true
---runtimeknob:System.Globalization.PredefinedCulturesOnly=true
 --runtimeknob:System.Reflection.Metadata.MetadataUpdater.IsSupported=false
 --runtimeknob:System.Resources.ResourceManager.AllowCustomResourceTypes=false
 --runtimeknob:System.Resources.UseSystemResourceKeys=true

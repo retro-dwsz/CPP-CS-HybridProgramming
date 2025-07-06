@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Haversine calculator with Hybrid-Programming C/C++ and C#")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7807cb364cfd4fdf812502493498812170be37f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c83e78d011d20105e7b3d6e7da7e0c36e6da44d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinLinux")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinLinux")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
