@@ -32,7 +32,7 @@
  */
 
 #include <cmath>
-// #include <fmt/format.h>
+#include <fmt/format.h>
 
 #if defined(_WIN32)
     #define CE extern "C" __declspec(dllexport)
@@ -42,6 +42,11 @@
 
 constexpr double PI = 3.141592653589793;
 constexpr int R  = 6371;
+
+CE
+void __TEST__(){
+    printf("%s", fmt::format("Hello, world!").c_str());
+}
 
 CE
 double convert(double x){
