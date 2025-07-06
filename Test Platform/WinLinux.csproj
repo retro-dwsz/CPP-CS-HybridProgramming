@@ -64,7 +64,8 @@
     <StripSymbols>true</StripSymbols>
 
     <!-- AOT Native Compilation -->
-    <!-- <PublishAot>true</PublishAot> --> <!-- PROBLEM OF LINUX -->
+    <!-- PROBLEM OF LINUX -->
+    <PublishAot>true</PublishAot>
     <IlcDisableReflection>true</IlcDisableReflection>
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
 

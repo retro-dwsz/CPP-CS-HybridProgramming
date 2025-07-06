@@ -77,49 +77,52 @@ public class Debug
 
 public class Extern
 {
+    // Linux stuffs
     public class Linux
     {
         public class x64
         {
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern void __TEST__();
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double convert(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_rad(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_deg(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Rad(double latA, double lonA, double latB, double lonB);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Deg(double latA, double lonA, double latB, double lonB);
         }
         public class x86
         {
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern void __TEST__();
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double convert(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_rad(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Hav_deg(double x);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Rad(double latA, double lonA, double latB, double lonB);
 
-            [DllImport("Extern_LINUX.x64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("Extern_LINUX.x86.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double Distance_Deg(double latA, double lonA, double latB, double lonB);
         }
     }
+
+    // Windows stuffs
     public class WIN
     {
         public class x64
@@ -510,7 +513,7 @@ class Program
         }
         catch (Exception)
         {
-            Console.WriteLine($"\n\nCRASH DETECTED!\nInvalid file! Required: {Debug.GetOS()} on {Debug.GetCPU()}");
+            Console.WriteLine($"\n\nCRASH !!\nInvalid file! Required: {Debug.GetOS()} on {Debug.GetCPU()}");
             throw new FormatException("Invalid file!");
         }
     }

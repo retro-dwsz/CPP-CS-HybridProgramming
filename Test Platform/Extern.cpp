@@ -4,21 +4,23 @@
  *
  * 🧪 Windows:
  * ┌─ x64:
- * ├── <COMPILER> -shared -o Extern_WIN.x64.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m64 -I"./include/fmt-x64/include" -L"./include/fmt-x64/lib" -lfmt
+ * ├── clang++ -shared -o Extern_WIN.x64.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m64 -I"./include/fmt-x64/include" -L"./include/fmt-x64/lib" -lfmt
  * │
  * ├─ x86:
- * └── <COMPILER> -shared -o Extern_WIN.x86.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m32 -I"./include/fmt-x86/include" -L"./include/fmt-x86/lib" -lfmt
+ * └── clang++ -shared -o Extern_WIN.x86.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m32 -I"./include/fmt-x86/include" -L"./include/fmt-x86/lib" -lfmt
 
  * 🐧 Linux:
  * ┌─ x64:
- * ├── <COMPILER> -shared -o Extern_LINUX.X64.so Extern.cpp -fPIC -std=c++23 -O3 -m64 -static -I"./include/fmt-x64/include" -L"./include/fmt-x64/lib" -lfmt
+ * ├── clang++ -c -o Extern_LINUX.x64.a Extern.cpp -fPIC -std=c++23 -O3 -m64 -static -I"./include/Linux/fmt-x64/include" -L"./include/Linux/fmt-x64/lib" -lfmt
+ * ├── clang++ -shared -o Extern_LINUX.x64.so Extern.cpp -fPIC -std=c++23 -O3 -m64 -I"./include/Linux/fmt-x64/include" -L"./include/Linux/fmt-x64/lib" -lfmt
  * │
  * ├─ x86:
- * ├── <COMPILER> -shared -o Extern_LINUX.X86.so Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/fmt-x86/include" -L"./include/fmt-x86/lib" -lfmt
+ * ├── clang++ -c -o Extern_LINUX.x86.a Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/Linux/fmt-x86/include" -L"./include/Linux/fmt-x86/lib" -lfmt
+ * └── clang++ -shared -o Extern_LINUX.x86.so Extern.cpp -fPIC -std=c++23 -O3 -m32 -I"./include/Linux/fmt-x86/include" -L"./include/Linux/fmt-x86/lib" -lfmt
 
  Others
  * ├─ ARCH/OS :
- * └── <COMPILER> -shared -o Extern_<OS>.<ARCH>.so Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/fmt-<ARCH>/include" -L"./include/fmt-<ARCH>/lib" -lfmt
+ * └── <COMPILER> -shared -o Extern_<OS>.<ARCH>.<EXT> Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/fmt-<ARCH>/include" -L"./include/fmt-<ARCH>/lib" -lfmt
 
  * 💡 Notes:
  * - Use `clang++` or `g++` full version for multi-arch support
@@ -27,7 +29,7 @@
  *
  * 📦 Output:
  * - Windows: .dll
- * - Linux:   .so or .dll
+ * - Linux:   .so (dynamic) or .a (static)
  */
 
 #include <cmath>
