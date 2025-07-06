@@ -33,6 +33,7 @@
 
 #include <cmath>
 #include <fmt/format.h>
+#include <stdio.h>
 
 #if defined(_WIN32)
     #define CE extern "C" __declspec(dllexport)
