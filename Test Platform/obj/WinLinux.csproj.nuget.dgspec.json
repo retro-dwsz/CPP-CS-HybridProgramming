@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj": {}
+    "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/WinLinux.csproj": {}
   },
   "projects": {
-    "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj": {
+    "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/WinLinux.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj",
+        "projectUniqueName": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/WinLinux.csproj",
         "projectName": "WinLinux",
-        "projectPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj",
-        "packagesPath": "C:\\Users\\David Sirait\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\obj\\",
+        "projectPath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/WinLinux.csproj",
+        "packagesPath": "/home/rdvor/.nuget/packages/",
+        "outputPath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Code\\MSVC\\MSVC_IDE_Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\David Sirait\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/rdvor/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -77,19 +71,19 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
               "version": "[9.0.6, 9.0.6]"
             },
             {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
               "version": "[9.0.6, 9.0.6]"
             },
             {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
               "version": "[9.0.6, 9.0.6]"
             },
             {
-              "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
+              "name": "runtime.linux-x64.Microsoft.DotNet.ILCompiler",
               "version": "[9.0.6, 9.0.6]"
             }
           ],
@@ -98,11 +92,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
-        "win-x64": {
+        "linux-x64": {
           "#import": []
         }
       }

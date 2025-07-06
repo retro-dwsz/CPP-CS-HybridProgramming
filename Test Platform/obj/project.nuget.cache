@@ -1,16 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "wwxHI540IzM=",
+  "dgSpecHash": "Q/N2grvdAuk=",
   "success": true,
-  "projectFilePath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\Test Platform\\WinLinux.csproj",
+  "projectFilePath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/Test Platform/WinLinux.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\9.0.6\\microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.6\\microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.6\\microsoft.netcore.app.runtime.win-x64.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.6\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.6\\microsoft.aspnetcore.app.runtime.win-x64.9.0.6.nupkg.sha512",
-    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512"
+    "/home/rdvor/.nuget/packages/microsoft.dotnet.ilcompiler/9.0.6/microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
+    "/home/rdvor/.nuget/packages/microsoft.net.illink.tasks/9.0.6/microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
+    "/home/rdvor/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/9.0.6/microsoft.netcore.app.runtime.linux-x64.9.0.6.nupkg.sha512",
+    "/home/rdvor/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/9.0.6/microsoft.aspnetcore.app.runtime.linux-x64.9.0.6.nupkg.sha512",
+    "/home/rdvor/.nuget/packages/runtime.linux-x64.microsoft.dotnet.ilcompiler/9.0.6/runtime.linux-x64.microsoft.dotnet.ilcompiler.9.0.6.nupkg.sha512",
+    "/home/rdvor/.nuget/packages/microsoft.netcore.app.host.linux-x64/9.0.6/microsoft.netcore.app.host.linux-x64.9.0.6.nupkg.sha512"
   ],
   "logs": []
 }
