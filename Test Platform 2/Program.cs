@@ -3,5 +3,8 @@
 
 class Program
 {
-    CLASSIC_WINLINUX.ProgramClassic.Main();
+    public static void Main(string[] args)
+    {
+        CLASSIC_WINLINUX.ProgramClassic.Main_t();
+    }
 }

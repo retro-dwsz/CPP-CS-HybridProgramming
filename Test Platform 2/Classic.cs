@@ -1,8 +1,7 @@
-namespace CLASSIC_WINLINUX;
-
 using System;
 using System.Runtime.InteropServices;
 
+namespace CLASSIC_WINLINUX;
 
 public class Machine
 {
@@ -25,7 +24,7 @@ public class Machine
     }
 }
 
-public class Debug
+class Debug
 {
     public static Machine.CPU GetCPU()
     {
@@ -107,28 +106,28 @@ public class Debug
 public class Testing
 {
     // string FILE = Debug.GetFile();      // nuh uh
-    const string FILE = "Extern_WIN";   // OK
+    const string FILE = "Extern_WIN.x64";   // OK
     
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
     public static extern void __TEST__();
 
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int convert(double x);
+    public static extern double convert(double x);
 
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int Hav_rad(double x);
+    public static extern double Hav_rad(double x);
 
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int Hav_deg(double x);
+    public static extern double Hav_deg(double x);
 
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int Distance_Rad(double latA, double lonA, double latB, double lonB);
+    public static extern double Distance_Rad(double latA, double lonA, double latB, double lonB);
 
     [DllImport(FILE, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int Distance_Deg(double latA, double lonA, double latB, double lonB);
+    public static extern double Distance_Deg(double latA, double lonA, double latB, double lonB);
 }
 
-public class ProgramClassic
+class ProgramClassic
 {
     public static void OutputBuffer()
     {
@@ -158,7 +157,7 @@ public class ProgramClassic
         Console.ForegroundColor = nowFore;
     }
 
-    public static void Main()
+    public static void Main_t()
     {
         Debug.GetStatusSystem();
         // Extern.Linux.x64.__TEST__();
@@ -171,27 +170,27 @@ public class ProgramClassic
         Console.Write("\n");
         FunctionName("convert()");
         OutputBuffer();
-        Testing.convert(Math.PI);
+        Console.WriteLine("\t", Testing.convert(Math.PI));
 
         Console.Write("\n");
         FunctionName($"Hav_rad(1.8641198515 - 1.86273266385) = Hav_rad({1.8641198515 - 1.86273266385})");
         OutputBuffer();
-        Testing.Hav_rad(1.8641198515 - 1.86273266385);
+        Console.WriteLine("\t", Testing.Hav_rad(1.8641198515 - 1.86273266385));
 
         Console.Write("\n");
         FunctionName($"Hav_deg(1.8641198515 - 1.86273266385) = Hav_deg({1.8641198515 - 1.86273266385})");
         OutputBuffer();
-        Testing.Hav_deg(106.806200 - 106.726720);
+        Console.WriteLine("\t", Testing.Hav_deg(106.806200 - 106.726720));
 
         Console.Write("\n");
         FunctionName($"Distance_Rad() -> Distance_Rad( -0.11499026728, 1.8641198515, -0.1144863034543, 1.86273266385 )");
         OutputBuffer();
-        Testing.Distance_Rad(-0.11499026728, 1.8641198515, -0.1144863034543, 1.86273266385);
+        Console.WriteLine("\t", Testing.Distance_Rad(-0.11499026728, 1.8641198515, -0.1144863034543, 1.86273266385));
 
         Console.Write("\n");
         FunctionName($"Distance_Deg() -> Distance_Deg( -6.588457, 106.806200, -6.559582, 106.726720);");
         OutputBuffer();
-        Testing.Distance_Deg(-6.588457, 106.806200, -6.559582, 106.726720);
+        Console.WriteLine("\t", Testing.Distance_Deg(-6.588457, 106.806200, -6.559582, 106.726720));
         // try
         // {
         // }
