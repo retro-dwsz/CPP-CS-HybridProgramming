@@ -1,0 +1,5 @@
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Windows\net9.0\win-x64\CSCPP-HavDistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Windows\net9.0\win-x64\CSCPP-HavDistance.AssemblyInfoInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Windows\net9.0\win-x64\CSCPP-HavDistance.AssemblyInfo.cs
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Windows\net9.0\win-x64\CSCPP-HavDistance.csproj.CoreCompileInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\obj\Windows\net9.0\win-x64\CSCPP-HavDistance.sourcelink.json

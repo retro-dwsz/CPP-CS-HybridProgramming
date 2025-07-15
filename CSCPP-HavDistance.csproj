@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <!-- WINDOWS -->
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  <PropertyGroup Condition="'$(Configuration)' == 'Windows'">
     <!-- AOT dan SingleFile gak bisa bareng -->
     <PublishSingleFile>false</PublishSingleFile>
 
@@ -48,7 +48,7 @@
   </PropertyGroup>
 
   <!-- LINUX -->
-  <PropertyGroup Condition="'$(Configuration)' == 'ReleaseLinux'">
+  <PropertyGroup Condition="'$(Configuration)' == 'Linux'">
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
     <OutputPath>CS_Compiled_LINUX/Build/</OutputPath>   <!-- Output build -->
     <PublishDir>CS_Compiled_LINUX/Publish/</PublishDir>   <!-- Output publish -->
