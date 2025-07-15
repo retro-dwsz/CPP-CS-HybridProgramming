@@ -4,23 +4,23 @@
  *
  * 🧪 Windows:
  * ┌─ x64:
- * ├── clang++ -shared -o Extern_WIN.x64.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m64 -I"./include/fmt-x64/include" -L"./include/fmt-x64/lib" -lfmt
+ * ├── clang++ -shared -o Extern_WIN.x64.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m64 -I"./include" -L"./include/lib-fmt-x64-win" -lfmt
  * │
  * ├─ x86:
- * └── clang++ -shared -o Extern_WIN.x86.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m32 -I"./include/fmt-x86/include" -L"./include/fmt-x86/lib" -lfmt
+ * └── clang++ -shared -o Extern_WIN.x86.dll Extern.cpp -static -fPIC -std=c++23 -O3 -m32 -I"./include" -L"./include/lib-fmt-x86-win" -lfmt
 
  * 🐧 Linux:
  * ┌─ x64:
- * ├── clang++ -c -o Extern_LINUX.x64.a Extern.cpp -fPIC -std=c++23 -O3 -m64 -static -I"./include/Linux/fmt-x64/include" -L"./include/Linux/fmt-x64/lib" -lfmt
- * ├── clang++ -shared -o Extern_LINUX.x64.so Extern.cpp -fPIC -std=c++23 -O3 -m64 -I"./include/Linux/fmt-x64/include" -L"./include/Linux/fmt-x64/lib" -lfmt
+ * ├── clang++ -c -o Extern_LINUX.x64.a Extern.cpp -fPIC -std=c++23 -O3 -m64 -static -I"./include" -L"./include/lib-fmt-x64-linux" -lfmt
+ * ├── clang++ -shared -o Extern_LINUX.x64.so Extern.cpp -fPIC -std=c++23 -O3 -m64 -I"./include" -L"./include/lib-fmt-x64-linux" -lfmt
  * │
  * ├─ x86:
- * ├── clang++ -c -o Extern_LINUX.x86.a Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/Linux/fmt-x86/include" -L"./include/Linux/fmt-x86/lib" -lfmt
- * └── clang++ -shared -o Extern_LINUX.x86.so Extern.cpp -fPIC -std=c++23 -O3 -m32 -I"./include/Linux/fmt-x86/include" -L"./include/Linux/fmt-x86/lib" -lfmt
+ * ├── clang++ -c -o Extern_LINUX.x86.a Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include" -L"./include/lib-fmt-x86-linux" -lfmt
+ * └── clang++ -shared -o Extern_LINUX.x86.so Extern.cpp -fPIC -std=c++23 -O3 -m32 -I"./include" -L"./include/lib-fmt-x86-linux" -lfmt
 
  Others
  * ├─ ARCH/OS :
- * └── <COMPILER> -shared -o Extern_<OS>.<ARCH>.<EXT> Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include/fmt-<ARCH>/include" -L"./include/fmt-<ARCH>/lib" -lfmt
+ * └── <COMPILER> -shared -o Extern_<OS>.<ARCH>.<EXT> Extern.cpp -fPIC -std=c++23 -O3 -m32 -static -I"./include" -L"./include/lib-fmt-<ARCH>-<OS>" -lfmt
 
  * 💡 Notes:
  * - Use `clang++` or `g++` full version for multi-arch support
@@ -79,7 +79,7 @@ CE double Distance_Rad(double latA, double lonA, double latB, double lonB) {
     double cos2 = std::cos(lat2);
 
     double Hav = hav1 + cos1 * cos2 * hav2;
-    double T = 2 * std::asin(std::sqrt(Hav));
+    double T = 2 * std::atan2(std::sqrt(Hav), std::sqrt(1 - Hav));
     double D = R * T;
 
     return D;

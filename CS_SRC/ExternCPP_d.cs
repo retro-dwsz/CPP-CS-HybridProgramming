@@ -20,9 +20,11 @@ public class DEBUG
     }
     public enum CPU
     {
+        X86,
         X64,
         ARM,
         ARM64,
+        LARM64,
         Unknown
     }
 
@@ -38,8 +40,11 @@ public class DEBUG
                 return CPU.ARM;
             case Architecture.Arm64:
                 return CPU.ARM64;
+            case Architecture.LoongArch64:
+                return CPU.LARM64;
         }
     }
+    
     public static OS GetOS()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))

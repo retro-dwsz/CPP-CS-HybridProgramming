@@ -1,0 +1,5 @@
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\Test Platfrom 2\obj\Windows\net9.0\win-x64\WinLinux2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\Test Platfrom 2\obj\Windows\net9.0\win-x64\WinLinux2.AssemblyInfoInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\Test Platfrom 2\obj\Windows\net9.0\win-x64\WinLinux2.AssemblyInfo.cs
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\Test Platfrom 2\obj\Windows\net9.0\win-x64\WinLinux2.csproj.CoreCompileInputs.cache
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\Test Platfrom 2\obj\Windows\net9.0\win-x64\WinLinux2.sourcelink.json
