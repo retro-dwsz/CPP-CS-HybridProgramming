@@ -78,30 +78,31 @@ public class DynamicOS
         Console.WriteLine("Not compatible system!");
     }
 
+    // Begin Windows
     public class CPP_WINDOWS
     {
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Hav(double x, bool Printing);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_HavDeg(double x, bool Printing);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_RawUTF8Print(string text);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DistanceT(double T);
     }
 
@@ -109,84 +110,85 @@ public class DynamicOS
     {
         public class X64
         {
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_X64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
 
         public class ARM64
         {
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
     }
+    // End Windows
 
-
+    // Begin Linux
     public class CPP_LINUX
     {
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Hav(double x, bool Printing);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_HavDeg(double x, bool Printing);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_RawUTF8Print(string text);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-        [DllImport("CPP_Main_LINUX.dll.so", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_DistanceT(double T);
     }
 
@@ -194,58 +196,59 @@ public class DynamicOS
     {
         public class X64
         {
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_X64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
 
         public class ARM64
         {
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Hav(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_HavDeg(double x, bool Printing);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_RawUTF8Print(string text);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DHav(double dlat, double lon1, double lon2, double dlon);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Theta(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Distance(double Hav, bool isRadian = false);
 
-            [DllImport("CPP_Main_LINUX_ARM64.dll.so", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_DistanceT(double T);
         }
     }
+    // End Linux
 }
 
 public class CPP
@@ -262,8 +265,6 @@ public class CPP
                 {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
-                    case DEBUG.CPU.ARM:
-                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
                     case DEBUG.CPU.ARM64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
                     default:
@@ -274,8 +275,6 @@ public class CPP
                 {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
-                    case DEBUG.CPU.ARM:
-                        return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
                     case DEBUG.CPU.ARM64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
                     default:
@@ -284,82 +283,37 @@ public class CPP
             default:
                 DynamicOS.Error(); return 0.0;
         }
-
-        // if (Platform == DEBUG.OS.Windows)
-        // {
-        //     if (CPU == DEBUG.CPU.X64)
-        //     {
-        //         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
-        //     }
-        //     else if (CPU == DEBUG.CPU.ARM64)
-        //     {
-        //         return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Convert(x);
-        //     }
-        //     else
-        //     {
-        //         return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
-        //     }
-        // }
-        // else if (Platform == DEBUG.OS.Linux)
-        // {
-        //     if (CPU == DEBUG.CPU.X64)
-        //     {
-        //         return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
-        //     }
-        //     else if (CPU == DEBUG.CPU.ARM64)
-        //     {
-        //         return DynamicOS.CPP_LINUX_D.ARM64.CPP_Convert(x);
-        //     }
-        //     else
-        //     {
-        //         return DynamicOS.CPP_LINUX.CPP_Convert(x);
-        //     }
-        // }
-        // else
-        // {
-        //     DynamicOS.Error();
-        //     return 0;
-        // }
     }
 
     public static double CPP_Hav(double x, bool Printing)
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Hav(x, Printing);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Hav(x, Printing);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_Hav(x, Printing);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Hav(x, Printing);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_Hav(x, Printing);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Hav(x, Printing);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Hav(x, Printing);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Hav(x, Printing);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Hav(x, Printing);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_Hav(x, Printing);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -367,40 +321,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_HavDeg(x, Printing);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_HavDeg(x, Printing);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_HavDeg(x, Printing);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_HavDeg(x, Printing);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_HavDeg(x, Printing);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_HavDeg(x, Printing);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_HavDeg(x, Printing);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_HavDeg(x, Printing);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_HavDeg(x, Printing);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_HavDeg(x, Printing);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -408,40 +353,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_RawUTF8Print(text);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_RawUTF8Print(text);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_RawUTF8Print(text);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_RawUTF8Print(text);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_RawUTF8Print(text);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_RawUTF8Print(text);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_RawUTF8Print(text);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_RawUTF8Print(text);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_RawUTF8Print(text);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_RawUTF8Print(text);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -449,40 +385,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_DHav(dlat, lon1, lon2, dlon);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_DHav(dlat, lon1, lon2, dlon);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -490,40 +417,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Theta(Hav, isRadian);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Theta(Hav, isRadian);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_Theta(Hav, isRadian);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Theta(Hav, isRadian);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_Theta(Hav, isRadian);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Theta(Hav, isRadian);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Theta(Hav, isRadian);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Theta(Hav, isRadian);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Theta(Hav, isRadian);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_Theta(Hav, isRadian);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -531,40 +449,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_Distance(Hav, isRadian);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_Distance(Hav, isRadian);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_Distance(Hav, isRadian);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_Distance(Hav, isRadian);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_Distance(Hav, isRadian);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Distance(Hav, isRadian);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_Distance(Hav, isRadian);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Distance(Hav, isRadian);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_Distance(Hav, isRadian);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_Distance(Hav, isRadian);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 
@@ -572,40 +481,31 @@ public class CPP
     {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
-        if (Platform == DEBUG.OS.Windows)
+
+        switch (Platform)
         {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.X64.CPP_DistanceT(T);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_WINDOWS_D.ARM64.CPP_DistanceT(T);
-            }
-            else
-            {
-                return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
-            }
-        }
-        else if (Platform == DEBUG.OS.Linux)
-        {
-            if (CPU == DEBUG.CPU.X64)
-            {
-                return DynamicOS.CPP_LINUX_D.X64.CPP_DistanceT(T);
-            }
-            else if (CPU == DEBUG.CPU.ARM64)
-            {
-                return DynamicOS.CPP_LINUX_D.ARM64.CPP_DistanceT(T);
-            }
-            else
-            {
-                return DynamicOS.CPP_LINUX.CPP_DistanceT(T);
-            }
-        }
-        else
-        {
-            DynamicOS.Error();
-            return 0;
+            case DEBUG.OS.Windows:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_DistanceT(T);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_WINDOWS_D.X64.CPP_DistanceT(T);
+                    default:
+                        return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
+                }
+            case DEBUG.OS.Linux:
+                switch (CPU)
+                {
+                    case DEBUG.CPU.X64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_DistanceT(T);
+                    case DEBUG.CPU.ARM64:
+                        return DynamicOS.CPP_LINUX_D.X64.CPP_DistanceT(T);
+                    default:
+                        return DynamicOS.CPP_LINUX.CPP_DistanceT(T);
+                }
+            default:
+                DynamicOS.Error(); return 0.0;
         }
     }
 }

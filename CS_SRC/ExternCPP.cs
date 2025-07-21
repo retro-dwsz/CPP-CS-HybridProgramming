@@ -6,7 +6,10 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 // using System.Runtime.Versioning;
 
+namespace CS_ExternCPP;
+
 // NOT FULLY IMPLEMENTED YET!
+[Obsolete("Use CS_ExternCPP_d instead")]
 public class CPP_F
 {
     [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -34,28 +37,21 @@ public class CPP_F
     public static extern double CPP_DistanceT(double T);
 }
 
-
+[Obsolete("Use CS_ExternCPP_d instead")]
 public class CPP
 {
     public static double CPP_Convert(double x)
     {
-        Debug.CPU CPU = Debug.GetCPU();
-        Debug.OS OS = Debug.GetOS();
-
         return CPP_F.CPP_Convert(x);
     }
 
     public static double CPP_Hav(double x, bool Printing)
     {
-        Debug.CPU CPU = Debug.GetCPU();
-        Debug.OS OS = Debug.GetOS();
         return CPP_F.CPP_Hav(x, Printing);
     }
 
     public static double CPP_HavDeg(double x, bool Printing)
     {
-        Debug.CPU CPU = Debug.GetCPU();
-        Debug.OS OS = Debug.GetOS();
         return CPP_F.CPP_HavDeg(x, Printing);
     }
 

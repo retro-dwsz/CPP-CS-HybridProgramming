@@ -2,8 +2,8 @@
 
 /**
  * Compile with the following arguments of Clang or GCC
- * Windows  clang++ -shared -o CPP_Main.dll ./CPP_SRC/CPP_Main.cpp -O3 -fPIC
- * Linux    clang++ -shared -o CPP_Main_LINUX_X64.dll ./CPP_SRC/CPP_Main.cpp -O3 -fms-extensions -fPIC
+ * Windows  clang++ -shared -o CPP_Main_WIN_<arch>.dll ./CPP_SRC/CPP_Main.cpp -O3 -fPIC
+ * Linux    clang++ -shared -o CPP_Main_LINUX_<arch>.dll ./CPP_SRC/CPP_Main.cpp -O3 -fms-extensions -fPIC
  * 
  * On windows it should be around 69.632 Bytes
  * On other platform, maybe it's the same?
