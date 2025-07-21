@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj": {}
+    "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj": {}
   },
   "projects": {
-    "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj": {
+    "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
+        "projectUniqueName": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj",
         "projectName": "CSCPP-HavDistance",
-        "projectPath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
-        "packagesPath": "/home/rdvor/.nuget/packages/",
-        "outputPath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/obj/",
+        "projectPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj",
+        "packagesPath": "C:\\Users\\David Sirait\\.nuget\\packages\\",
+        "outputPath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Code\\MSVC\\MSVC_IDE_Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/rdvor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\David Sirait\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +45,25 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.DotNet.ILCompiler": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "autoReferenced": true
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,8 +77,20 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[9.0.6, 9.0.6]"
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[9.0.7, 9.0.7]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[9.0.7, 9.0.7]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[9.0.7, 9.0.7]"
+            },
+            {
+              "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
+              "version": "[9.0.7, 9.0.7]"
             }
           ],
           "frameworkReferences": {
@@ -66,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

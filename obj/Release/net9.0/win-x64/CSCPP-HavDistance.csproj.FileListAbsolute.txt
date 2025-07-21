@@ -192,7 +192,6 @@ D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\create
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\hostfxr.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\hostpolicy.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\mscordaccore.dll
-D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\mscordaccore_amd64_amd64_9.0.625.26613.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\mscordbi.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\mscorrc.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\msquic.dll
@@ -762,3 +761,4 @@ D:\Code\!Docs\Obsolete Trig\Hybrid Programming\CS_Compiled\Build\net9.0\win-x64\
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\CS_Compiled\Build\net9.0\win-x64\mscordbi.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\CS_Compiled\Build\net9.0\win-x64\mscorrc.dll
 D:\Code\!Docs\Obsolete Trig\Hybrid Programming\CS_Compiled\Build\net9.0\win-x64\msquic.dll
+D:\Code\!Docs\Obsolete Trig\Hybrid Programming\bin\Release\net9.0\win-x64\mscordaccore_amd64_amd64_9.0.725.31616.dll

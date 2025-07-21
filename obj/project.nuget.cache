@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "ZApuuDZsqn0=",
+  "dgSpecHash": "BZ5lchBcphE=",
   "success": true,
-  "projectFilePath": "/home/rdvor/Desktop/Code/CPP-CS-HybridProgramming/CSCPP-HavDistance.csproj",
+  "projectFilePath": "D:\\Code\\!Docs\\Obsolete Trig\\Hybrid Programming\\CSCPP-HavDistance.csproj",
   "expectedPackageFiles": [
-    "/home/rdvor/.nuget/packages/microsoft.netcore.app.host.win-x64/9.0.6/microsoft.netcore.app.host.win-x64.9.0.6.nupkg.sha512"
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\9.0.7\\microsoft.dotnet.ilcompiler.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.7\\microsoft.net.illink.tasks.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.7\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.7\\microsoft.netcore.app.runtime.win-x64.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.7\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.7\\microsoft.aspnetcore.app.runtime.win-x64.9.0.7.nupkg.sha512",
+    "C:\\Users\\David Sirait\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.7\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.7.nupkg.sha512"
   ],
   "logs": []
 }

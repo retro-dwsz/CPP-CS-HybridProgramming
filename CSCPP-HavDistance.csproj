@@ -47,6 +47,12 @@
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
 
+  <!-- Don't include tests! -->
+  <ItemGroup>
+    <Compile Remove="Test\Test Platform 1\**\*.cs" />
+    <Compile Remove="Test\Test Platform 2\**\*.cs" />
+  </ItemGroup>
+
   <!-- LINUX -->
   <PropertyGroup Condition="'$(Configuration)' == 'Linux'">
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>        <!-- Penting! -->
@@ -73,7 +79,6 @@
 
     <!-- AOT and SingleFile can't be used together, so this must be false -->
     <PublishSingleFile>false</PublishSingleFile>
-
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
