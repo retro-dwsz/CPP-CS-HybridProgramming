@@ -5,6 +5,8 @@ using CS_Location;
 using CS_Symbols;
 using CS_Haversine;
 
+using CS_ExternCPP_d;
+
 // using CS_ExternCPP;
 // using CS_ExternCPP_d;
 
@@ -33,7 +35,7 @@ public class Distance
         {
             // Print Degree coordinates 
             Console.WriteLine($"Coords in Degrees");
-            
+
             // Latitudes
             double lat1 = A.Lat;
             double lon1 = A.Lon;

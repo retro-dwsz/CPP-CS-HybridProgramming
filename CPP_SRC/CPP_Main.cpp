@@ -110,7 +110,6 @@ double CPP_Distance(double Hav, bool isRadian = false){
 SEPERATOR
 
 /***** *  Raw string functions  * *****/
-#include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 

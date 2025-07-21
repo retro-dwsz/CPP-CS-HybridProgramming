@@ -39,16 +39,23 @@ public class CPP
 {
     public static double CPP_Convert(double x)
     {
+        Debug.CPU CPU = Debug.GetCPU();
+        Debug.OS OS = Debug.GetOS();
+
         return CPP_F.CPP_Convert(x);
     }
 
     public static double CPP_Hav(double x, bool Printing)
     {
+        Debug.CPU CPU = Debug.GetCPU();
+        Debug.OS OS = Debug.GetOS();
         return CPP_F.CPP_Hav(x, Printing);
     }
 
     public static double CPP_HavDeg(double x, bool Printing)
     {
+        Debug.CPU CPU = Debug.GetCPU();
+        Debug.OS OS = Debug.GetOS();
         return CPP_F.CPP_HavDeg(x, Printing);
     }
 
