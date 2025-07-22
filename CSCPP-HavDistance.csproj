@@ -49,8 +49,9 @@
 
   <!-- Don't include tests! -->
   <ItemGroup>
-    <Compile Remove="Test\Test Platform 1\**\*.cs" />
-    <Compile Remove="Test\Test Platform 2\**\*.cs" />
+    <Compile Remove="Test\**" />
+    <!-- <Compile Remove="Test\Test Platform 1\**\*.cs" /> -->
+    <!-- <Compile Remove="Test\Test Platform 2\**\*.cs" /> -->
   </ItemGroup>
 
   <!-- LINUX -->
