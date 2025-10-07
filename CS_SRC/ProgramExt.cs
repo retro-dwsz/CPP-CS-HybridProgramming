@@ -21,34 +21,23 @@ using CS_Coloring;
 using CS_Distance;
 
 
-public class ProgramExt
-{
-    public static int CheckPlatform()
-    {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
+public class ProgramExt {
+    public static int CheckPlatform() {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
             return 1;
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        {
+        } else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
             return 2;
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
+        } else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
             return 3;
-        }
-        else
-        {
+        } else {
             return -1;
         }
     }
 
-    public static string GetOS()
-    {
+    public static string GetOS() {
         int c = CheckPlatform();
 
-        switch (c)
-        {
+        switch (c) {
             default: return "unknown";
             case 1: return "Windows";
             case 2: return "Linux";
@@ -58,8 +47,7 @@ public class ProgramExt
 
     public static string GetCPU() {
         Architecture arch = RuntimeInformation.ProcessArchitecture;
-        switch (arch)
-        {
+        switch (arch) {
             default: return "unknown";
             case Architecture.X64:
                 // Console.WriteLine("x86-64");
@@ -81,8 +69,7 @@ public class ProgramExt
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool CheckEqual(object Var1, object Var2)
-    {
+    private static bool CheckEqual(object Var1, object Var2) {
         return Equals(Var1, Var2);
         // if (Var1 == Var2) {
         //     return true;
@@ -92,15 +79,12 @@ public class ProgramExt
         // }
     }
 
-    public static void ProgramMainRunner()
-    {
+    public static void ProgramMainRunner() {
         ProgramMainRunner(new Location(), new Location(), "");
     }
 
-    private static void ProgramMainRunner(Location LocA, Location LocB, string tag = "")
-    {
-        if (tag != "")
-        {
+    private static void ProgramMainRunner(Location LocA, Location LocB, string tag = "") {
+        if (tag != "") {
             Console.WriteLine(Misc.PrintMid(tag));
         }
 
@@ -124,8 +108,7 @@ public class ProgramExt
         Console.WriteLine(CheckEqual(D, R) ? "C# + C/C++ is APPROVED!" : "meh");
     }
 
-    public static void ENTRY_MAIN_EXT()
-    {
+    public static void ENTRY_MAIN_EXT() {
         Console.WriteLine($"Running on {GetOS()} with {GetCPU()} CPU");
         string TITLE = ColorTx.ColorStr("Haversine Implementation!");
         Console.WriteLine(Misc.PrintMid(TITLE, ' ', LeftBorder: ' ', RightBorder: ' '));

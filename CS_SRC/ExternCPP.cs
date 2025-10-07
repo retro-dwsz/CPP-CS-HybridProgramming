@@ -10,8 +10,7 @@ namespace CS_ExternCPP;
 
 // NOT FULLY IMPLEMENTED YET!
 [Obsolete("Use CS_ExternCPP_d instead")]
-public class CPP_F
-{
+public class CPP_F {
     [DllImport("CPP_Main.dll", CallingConvention = CallingConvention.Cdecl)]
     public static extern double CPP_Convert(double x);
 
@@ -38,45 +37,36 @@ public class CPP_F
 }
 
 [Obsolete("Use CS_ExternCPP_d instead")]
-public class CPP
-{
-    public static double CPP_Convert(double x)
-    {
+public class CPP {
+    public static double CPP_Convert(double x) {
         return CPP_F.CPP_Convert(x);
     }
 
-    public static double CPP_Hav(double x, bool Printing)
-    {
+    public static double CPP_Hav(double x, bool Printing) {
         return CPP_F.CPP_Hav(x, Printing);
     }
 
-    public static double CPP_HavDeg(double x, bool Printing)
-    {
+    public static double CPP_HavDeg(double x, bool Printing) {
         return CPP_F.CPP_HavDeg(x, Printing);
     }
 
-    public static double CPP_RawUTF8Print(string text)
-    {
+    public static double CPP_RawUTF8Print(string text) {
         return CPP_F.CPP_RawUTF8Print(text);
     }
 
-    public static double CPP_DHav(double dlat, double lon1, double lon2, double dlon)
-    {
+    public static double CPP_DHav(double dlat, double lon1, double lon2, double dlon) {
         return CPP_F.CPP_DHav(dlat, lon1, lon2, dlon);
     }
 
-    public static double CPP_Theta(double Hav, bool isRadian = false)
-    {
+    public static double CPP_Theta(double Hav, bool isRadian = false) {
         return CPP_F.CPP_Theta(Hav, isRadian);
     }
 
-    public static double CPP_Distance(double Hav, bool isRadian = false)
-    {
+    public static double CPP_Distance(double Hav, bool isRadian = false) {
         return CPP_F.CPP_Distance(Hav, isRadian);
     }
 
-    public static double CPP_DistanceT(double T)
-    {
+    public static double CPP_DistanceT(double T) {
         return CPP_F.CPP_DistanceT(T);
     }
 }

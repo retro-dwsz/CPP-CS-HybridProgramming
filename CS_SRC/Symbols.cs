@@ -1,7 +1,6 @@
 namespace CS_Symbols;
 
-public static class Symbols
-{
+public static class Symbols {
     // Greek Alphabets
     public const string DELTA = "\u0394";       // Δ
     public const string THETA = "\u03b8";       // θ

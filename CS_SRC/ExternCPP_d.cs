@@ -9,17 +9,14 @@ using System.Runtime.InteropServices;
 
 namespace CS_ExternCPP_d;
 
-public class DEBUG
-{
-    public enum OS
-    {
+public class DEBUG {
+    public enum OS {
         Unknown,
         Windows,
         Linux,
         Apple
     }
-    public enum CPU
-    {
+    public enum CPU {
         X86,
         X64,
         ARM,
@@ -28,11 +25,9 @@ public class DEBUG
         Unknown
     }
 
-    public static CPU GetCPU()
-    {
+    public static CPU GetCPU() {
         Architecture arch = RuntimeInformation.ProcessArchitecture;
-        switch (arch)
-        {
+        switch (arch) {
             default: return CPU.Unknown;
             case Architecture.X64:
                 return CPU.X64;
@@ -44,43 +39,31 @@ public class DEBUG
                 return CPU.LARM64;
         }
     }
-    
-    public static OS GetOS()
-    {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
+
+    public static OS GetOS() {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
             return OS.Windows;
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        {
+        } else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
             return OS.Linux;
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
+        } else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
             return OS.Apple;
-        }
-        else
-        {
+        } else {
             return OS.Unknown;
         }
     }
 
-    public static void GetStatusSystem()
-    {
+    public static void GetStatusSystem() {
         Console.WriteLine($"Running on {GetOS()} on {GetCPU()} CPU");
     }
 }
 
-public class DynamicOS
-{
-    public static void Error()
-    {
+public class DynamicOS {
+    public static void Error() {
         Console.WriteLine("Not compatible system!");
     }
 
     // Begin Windows
-    public class CPP_WINDOWS
-    {
+    public class CPP_WINDOWS {
         [DllImport("CPP_Main_WIN.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
 
@@ -106,10 +89,8 @@ public class DynamicOS
         public static extern double CPP_DistanceT(double T);
     }
 
-    public class CPP_WINDOWS_D
-    {
-        public class X64
-        {
+    public class CPP_WINDOWS_D {
+        public class X64 {
             [DllImport("CPP_Main_WIN_X64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
@@ -135,8 +116,7 @@ public class DynamicOS
             public static extern double CPP_DistanceT(double T);
         }
 
-        public class ARM64
-        {
+        public class ARM64 {
             [DllImport("CPP_Main_WIN_ARM64.dll", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
@@ -165,8 +145,7 @@ public class DynamicOS
     // End Windows
 
     // Begin Linux
-    public class CPP_LINUX
-    {
+    public class CPP_LINUX {
         [DllImport("CPP_Main_LINUX.so", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CPP_Convert(double x);
 
@@ -192,10 +171,8 @@ public class DynamicOS
         public static extern double CPP_DistanceT(double T);
     }
 
-    public class CPP_LINUX_D
-    {
-        public class X64
-        {
+    public class CPP_LINUX_D {
+        public class X64 {
             [DllImport("CPP_Main_LINUX_X64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
@@ -221,8 +198,7 @@ public class DynamicOS
             public static extern double CPP_DistanceT(double T);
         }
 
-        public class ARM64
-        {
+        public class ARM64 {
             [DllImport("CPP_Main_LINUX_ARM64.so", CallingConvention = CallingConvention.Cdecl)]
             public static extern double CPP_Convert(double x);
 
@@ -251,18 +227,14 @@ public class DynamicOS
     // End Linux
 }
 
-public class CPP
-{
-    public static double CPP_Convert(double x)
-    {
+public class CPP {
+    public static double CPP_Convert(double x) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Convert(x);
                     case DEBUG.CPU.ARM64:
@@ -271,8 +243,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_Convert(x);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Convert(x);
                     case DEBUG.CPU.ARM64:
@@ -285,16 +256,13 @@ public class CPP
         }
     }
 
-    public static double CPP_Hav(double x, bool Printing)
-    {
+    public static double CPP_Hav(double x, bool Printing) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Hav(x, Printing);
                     case DEBUG.CPU.ARM64:
@@ -303,8 +271,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_Hav(x, Printing);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Hav(x, Printing);
                     case DEBUG.CPU.ARM64:
@@ -317,16 +284,13 @@ public class CPP
         }
     }
 
-    public static double CPP_HavDeg(double x, bool Printing)
-    {
+    public static double CPP_HavDeg(double x, bool Printing) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_HavDeg(x, Printing);
                     case DEBUG.CPU.ARM64:
@@ -335,8 +299,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_HavDeg(x, Printing);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_HavDeg(x, Printing);
                     case DEBUG.CPU.ARM64:
@@ -349,16 +312,13 @@ public class CPP
         }
     }
 
-    public static double CPP_RawUTF8Print(string text)
-    {
+    public static double CPP_RawUTF8Print(string text) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_RawUTF8Print(text);
                     case DEBUG.CPU.ARM64:
@@ -367,8 +327,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_RawUTF8Print(text);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_RawUTF8Print(text);
                     case DEBUG.CPU.ARM64:
@@ -381,16 +340,13 @@ public class CPP
         }
     }
 
-    public static double CPP_DHav(double dlat, double lon1, double lon2, double dlon)
-    {
+    public static double CPP_DHav(double dlat, double lon1, double lon2, double dlon) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
                     case DEBUG.CPU.ARM64:
@@ -399,8 +355,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_DHav(dlat, lon1, lon2, dlon);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_DHav(dlat, lon1, lon2, dlon);
                     case DEBUG.CPU.ARM64:
@@ -413,16 +368,13 @@ public class CPP
         }
     }
 
-    public static double CPP_Theta(double Hav, bool isRadian = false)
-    {
+    public static double CPP_Theta(double Hav, bool isRadian = false) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Theta(Hav, isRadian);
                     case DEBUG.CPU.ARM64:
@@ -431,8 +383,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_Theta(Hav, isRadian);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Theta(Hav, isRadian);
                     case DEBUG.CPU.ARM64:
@@ -445,16 +396,13 @@ public class CPP
         }
     }
 
-    public static double CPP_Distance(double Hav, bool isRadian = false)
-    {
+    public static double CPP_Distance(double Hav, bool isRadian = false) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_Distance(Hav, isRadian);
                     case DEBUG.CPU.ARM64:
@@ -463,8 +411,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_Distance(Hav, isRadian);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_Distance(Hav, isRadian);
                     case DEBUG.CPU.ARM64:
@@ -477,16 +424,13 @@ public class CPP
         }
     }
 
-    public static double CPP_DistanceT(double T)
-    {
+    public static double CPP_DistanceT(double T) {
         DEBUG.OS Platform = DEBUG.GetOS();
         DEBUG.CPU CPU = DEBUG.GetCPU();
 
-        switch (Platform)
-        {
+        switch (Platform) {
             case DEBUG.OS.Windows:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_WINDOWS_D.X64.CPP_DistanceT(T);
                     case DEBUG.CPU.ARM64:
@@ -495,8 +439,7 @@ public class CPP
                         return DynamicOS.CPP_WINDOWS.CPP_DistanceT(T);
                 }
             case DEBUG.OS.Linux:
-                switch (CPU)
-                {
+                switch (CPU) {
                     case DEBUG.CPU.X64:
                         return DynamicOS.CPP_LINUX_D.X64.CPP_DistanceT(T);
                     case DEBUG.CPU.ARM64:

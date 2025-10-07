@@ -12,12 +12,10 @@ using CS_ExternCPP_d;
 
 namespace CS_Distance;
 
-public class Distance
-{
+public class Distance {
     public static int R = 6371;
 
-    public class Distance_2D
-    {
+    public class Distance_2D {
         /*
         based on Wikipedia article (With Printing)
         https://en.wikipedia.org/wiki/Haversine_formula
@@ -31,8 +29,7 @@ public class Distance
         archav(θ) = 2 * arcsin(√(θ)) = 2 * arctan2(√(θ), √(1-θ))
         */
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public static double Distance_Deg(Location A, Location B)
-        {
+        public static double Distance_Deg(Location A, Location B) {
             // Print Degree coordinates 
             Console.WriteLine($"Coords in Degrees");
 
@@ -112,8 +109,7 @@ public class Distance
         hav(x) = sin²(x/2) = (1 - cos(x))/2
         */
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public static double Distance_Rad(Location A, Location B)
-        {
+        public static double Distance_Rad(Location A, Location B) {
             // Print Radian coordinates 
             Console.WriteLine("Coords in Radians");
             // Latitudes
@@ -183,8 +179,7 @@ public class Distance
 
         /// TODO: Make C code för this
         [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
-        public static double Distance(Location A, Location B, bool IsRadian = false)
-        {
+        public static double Distance(Location A, Location B, bool IsRadian = false) {
             double lat1, lon1;
             double lat2, lon2;
 
@@ -198,8 +193,7 @@ public class Distance
 
             double Hav, T, d;
 
-            if (!IsRadian)
-            {
+            if (!IsRadian) {
                 lat1 = A.Lat;
                 lon1 = A.Lon;
                 lat2 = B.Lat;
@@ -220,9 +214,7 @@ public class Distance
                 // d = R * T;
                 d = CPP.CPP_DistanceT(T);
                 return d;
-            }
-            else
-            {
+            } else {
                 lat1 = A.Lat;
                 lon1 = A.Lon;
                 lat2 = B.Lat;

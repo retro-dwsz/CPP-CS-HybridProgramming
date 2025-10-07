@@ -4,24 +4,19 @@ using System.Runtime.CompilerServices;
 
 namespace CS_Coloring;
 
-public class ColorTx
-{
+public class ColorTx {
     public enum Position { Back, Fore }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ColorStr(string text = "Hello, world!", uint hex = 0xFF109696, Position pos = Position.Fore)
-    {
+    public static string ColorStr(string text = "Hello, world!", uint hex = 0xFF109696, Position pos = Position.Fore) {
         // Parse RGB from 0xAARRGGBB or 0xRRGGBB
         byte a = 255, r, g, b;
-        if (hex > 0xFFFFFF)
-        {
+        if (hex > 0xFFFFFF) {
             a = (byte)((hex >> 24) & 0xFF);
             r = (byte)((hex >> 16) & 0xFF);
             g = (byte)((hex >> 8) & 0xFF);
             b = (byte)(hex & 0xFF);
-        }
-        else
-        {
+        } else {
             r = (byte)((hex >> 16) & 0xFF);
             g = (byte)((hex >> 8) & 0xFF);
             b = (byte)(hex & 0xFF);
@@ -39,8 +34,7 @@ public class ColorTx
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Print(uint hex, Position pos, string text)
-    {
+    public static void Print(uint hex, Position pos, string text) {
         Console.WriteLine(ColorStr(text, hex, pos));
         Console.ResetColor(); // Don't leave your terminal cursed
     }
@@ -48,8 +42,7 @@ public class ColorTx
     // Kinda not useful
     // TODO: Make C code för this
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Debug(string text)
-    {
+    public static void Debug(string text) {
         CPP.CPP_RawUTF8Print(text);
     }
     // {
@@ -68,8 +61,7 @@ public class ColorTx
     //     Console.WriteLine();
     // }
 
-    private static ConsoleColor RgbToConsoleColor(byte r, byte g, byte b)
-    {
+    private static ConsoleColor RgbToConsoleColor(byte r, byte g, byte b) {
         // Naive RGB -> ConsoleColor mapping
         int index = (r > 128 ? 4 : 0) + (g > 128 ? 2 : 0) + (b > 128 ? 1 : 0);
         return (ConsoleColor)index;

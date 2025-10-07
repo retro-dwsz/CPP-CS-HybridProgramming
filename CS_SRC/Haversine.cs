@@ -7,8 +7,7 @@ namespace CS_Haversine;
 /// Provides methods to calculate the haversine function used in geographical distance calculations.
 /// Includes support for both radians and degrees, with optional verbose output for debugging.
 /// </summary>
-public class Haversine
-{
+public class Haversine {
     /* ~ ~ ~  Fn: Deg-Rad converter  ~ ~ ~ */
 
     /// <summary>
@@ -21,8 +20,7 @@ public class Haversine
     /// TODO: Make C code för this
 
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static double deg2rad(double deg)
-    {
+    public static double deg2rad(double deg) {
         return CPP.CPP_Convert(deg);
     }
 
@@ -51,8 +49,7 @@ public class Haversine
     /// TODO: Make C code för this
 
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static double Hav_rad(double x, bool Printing = false)
-    {
+    public static double Hav_rad(double x, bool Printing = false) {
         return CPP.CPP_Hav(x, Printing);
     }
     // {
@@ -82,8 +79,7 @@ public class Haversine
     /// TODO: Make C code för this
 
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static double Hav_deg(double x, bool Printing = false)
-    {
+    public static double Hav_deg(double x, bool Printing = false) {
         return CPP.CPP_HavDeg(x, Printing);
     }
     // {
@@ -116,14 +112,10 @@ public class Haversine
     /// 
     /// TODO: Make C code för this
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static double Hav(double x, bool isRadian = false, bool Printing = false)
-    {
-        if (isRadian)
-        {
+    public static double Hav(double x, bool isRadian = false, bool Printing = false) {
+        if (isRadian) {
             return CPP.CPP_Hav(x, Printing);
-        }
-        else
-        {
+        } else {
             return CPP.CPP_HavDeg(x, Printing);
         }
     }

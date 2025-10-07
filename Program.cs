@@ -13,7 +13,7 @@ using System.Collections.Generic;       // idk
 
 // using System.Diagnostics;
 using System.Runtime.CompilerServices;  // Super Optimization
-using DYNAMIC_CS_CPP_HAV_TEST;          // Testing
+// using DYNAMIC_CS_CPP_HAV_TEST;          // Testing
 using DYNAMIC_CS_CPP_HAV;               // The Experiment
 
 /**/
@@ -138,7 +138,7 @@ public class Program
 
     public static void ENTRY_TEST()
     {
-        ProgramTestCoffe.Main_test();
+        // ProgramTestCoffe.Main_test();
     }
 
     public static void ENTRY_MAIN()

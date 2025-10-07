@@ -8,8 +8,7 @@ namespace CS_Misc;
 /// Provides utility methods for string manipulation and console formatting.
 /// Includes functions to repeat strings, center text in the terminal, and more.
 /// </summary>
-public static class Misc
-{
+public static class Misc {
     /// <summary>
     /// Gets the current width of the console window.
     /// Can be used as a reference for aligning or centering output.
@@ -28,12 +27,10 @@ public static class Misc
     /// string result = Misc.Repeater("hello", 3); // Returns "hellohellohello"
     /// </code>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string Repeater(object str, int repetitions = 1)
-    {
+    public static string Repeater(object str, int repetitions = 1) {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < repetitions; i++)
-        {
+        for (int i = 0; i < repetitions; i++) {
             sb.Append(str?.ToString());
         }
 
@@ -57,8 +54,7 @@ public static class Misc
     /// </code>
     /// </example>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string PrintMid(string Text = "Hello", char Char = '=', int offset = 2, char LeftBorder = '[', char RightBorder = ']', bool Printing = false)
-    {
+    public static string PrintMid(string Text = "Hello", char Char = '=', int offset = 2, char LeftBorder = '[', char RightBorder = ']', bool Printing = false) {
         int ConsoleWidth = TerminalSize + offset;               // Get width + offset
         int Border_sz = (ConsoleWidth - Text.Length - 4) / 2;   // Subtract the length of the text and some spacing ([Text] takes up 4 characters).
                                                                 // Divide the remaining space equally between left and right borders.
@@ -73,8 +69,7 @@ public static class Misc
         // Final assembly
         string Content = $"{Left}{LeftBorder}{Text}{RightBorder}{Right}";
 
-        if (Printing)
-        {
+        if (Printing) {
             Console.WriteLine(Content);
         }
 

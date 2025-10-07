@@ -8,10 +8,8 @@ namespace CS_Location;
 /// <summary>
 /// Represents a geographical location with latitude, longitude, and associated metadata.
 /// </summary>
-public class Location
-{
-    public enum Unit
-    {
+public class Location {
+    public enum Unit {
         Degree,
         Radian
     }
@@ -36,15 +34,11 @@ public class Location
     /// <param name="Lon">Longitude of the location (default: 0).</param>
     /// <param name="Name">Name of the location (default: "MyLocation").</param>
     /// <param name="isRadian">Indicates whether the coordinates are in radians (default: false).</param>
-    public Location(string Name = "MyLocation", double Lat = 0, double Lon = 0, bool isRadian = false)
-    {
-        if (isRadian)
-        {
+    public Location(string Name = "MyLocation", double Lat = 0, double Lon = 0, bool isRadian = false) {
+        if (isRadian) {
             LUnit = Unit.Radian;
             Symbol = Symbols.RAD;
-        }
-        else if (!isRadian)
-        {
+        } else if (!isRadian) {
             LUnit = Unit.Degree;
             Symbol = Symbols.DEGREE;
         }
@@ -59,8 +53,7 @@ public class Location
     /// <summary>
     /// Prints the location's details in a human-readable format.
     /// </summary>
-    public void Printer()
-    {
+    public void Printer() {
         Console.WriteLine($"{Name} Coords in {LUnit}");
         Console.WriteLine($"{Symbols.PHI} = {Lat}{Symbol}");
         Console.WriteLine($"{Symbols.LAMBDA} = {Lon}{Symbol}");
@@ -73,16 +66,11 @@ public class Location
     /// <param name="force">Forces conversion even if the coordinates are already in radians (default: false).</param>
     /// <returns>A list containing the converted latitude and longitude in radians.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void toRadian(bool SupressWarning = false, bool force = false)
-    {
-        if (LUnit == Unit.Radian)
-        {
-            if (!SupressWarning && force)
-            {
+    public void toRadian(bool SupressWarning = false, bool force = false) {
+        if (LUnit == Unit.Radian) {
+            if (!SupressWarning && force) {
                 Console.WriteLine("Warning: Already in Radians, but forced conversion is enabled.");
-            }
-            else if (!SupressWarning)
-            {
+            } else if (!SupressWarning) {
                 Console.WriteLine("Warning: Already in Radians.");
                 // return Coords;
             }
@@ -109,16 +97,11 @@ public class Location
     /// 
     /// TODO: Make C code för this?
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void ToDegree(bool SupressWarning = false, bool Force = false)
-    {
-        if (LUnit == Unit.Degree)
-        {
-            if (!SupressWarning && Force)
-            {
+    public void ToDegree(bool SupressWarning = false, bool Force = false) {
+        if (LUnit == Unit.Degree) {
+            if (!SupressWarning && Force) {
                 Console.WriteLine("Warning: Already in Degrees, but forced conversion is enabled.");
-            }
-            else if (!SupressWarning)
-            {
+            } else if (!SupressWarning) {
                 Console.WriteLine("Warning: Already in Degrees.");
                 // return Coords;
             }
@@ -140,13 +123,11 @@ public class Location
     /// Retrieves the current coordinates of the location.
     /// </summary>
     /// <returns>A list containing the latitude and longitude.</returns>
-    public List<double> GetCoords()
-    {
+    public List<double> GetCoords() {
         return Coords;
     }
 
-    public Unit GetUnit()
-    {
+    public Unit GetUnit() {
         return LUnit;
     }
 
